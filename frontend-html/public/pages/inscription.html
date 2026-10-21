@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/pages/inscription.css">
+</head>
+<body>
+    <main class="page-inscription">
+        <div class="page-inscription__voile" aria-hidden="true"></div>
+
+        <section class="page-inscription__carte">
+            <header class="page-inscription__entete">
+                <div>
+                    <h1 class="page-inscription__titre">Creer mon compte</h1>
+                    <p class="page-inscription__sous-titre">
+                        Remplissez les informations ci-dessous. Votre NPI sera verifie.
+                    </p>
+                </div>
+                <a href="/connexion" class="page-inscription__retour">
+                    <span aria-hidden="true"><strong>&larr;</strong></span>
+                    Retour
+                </a>
+            </header>
+
+            <div class="page-inscription__corps">
+                <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <p id="texte-erreur" class="message__texte"></p>
+                </div>
+
+                <div id="zone-succes" hidden class="message message--succes" role="status">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </span>
+                    <p id="texte-succes" class="message__texte"></p>
+                </div>
+
+                <form id="formulaire-inscription" novalidate>
+                    <div class="page-inscription__grille">
+                        <div>
+                            <h2 class="page-inscription__section-titre">Identite</h2>
+
+                            <div class="champ">
+                                <label for="champ-npi" class="champ__label">
+                                    Numero d'Identification Personnelle NPI <span class="champ__obligatoire">*</span>
+                                </label>
+                                <input id="champ-npi" name="npiProfessionnel" type="text" class="champ__input" placeholder="Ex : 9876543210" maxlength="10" inputmode="numeric" required>
+                                <p class="champ__erreur" id="erreur-npi" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-nom" class="champ__label">
+                                    Nom <span class="champ__obligatoire">*</span>
+                                </label>
+                                <input id="champ-nom" name="nom" type="text" class="champ__input" placeholder="Ex : SAGBO" required>
+                                <p class="champ__erreur" id="erreur-nom" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-prenom" class="champ__label">
+                                    Prenom <span class="champ__obligatoire">*</span>
+                                </label>
+                                <input id="champ-prenom" name="prenom" type="text" class="champ__input" placeholder="Ex : Jean" required>
+                                <p class="champ__erreur" id="erreur-prenom" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-type" class="champ__label">
+                                    Type de professionnel <span class="champ__obligatoire">*</span>
+                                </label>
+                                <select id="champ-type" name="typeProfessionnel" class="champ__input champ__select" required>
+                                    <option value="">Selectionnez votre type</option>
+                                    <option value="medecin">Medecin</option>
+                                    <option value="infirmier">Infirmier</option>
+                                    <option value="pharmacien">Pharmacien</option>
+                                    <option value="sage_femme">Sage-femme</option>
+                                    <option value="technicien_labo">Technicien laboratoire</option>
+                                </select>
+                                <p class="champ__erreur" id="erreur-type" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-specialite" class="champ__label">
+                                    Specialite <span class="champ__obligatoire">*</span>
+                                </label>
+                                <input id="champ-specialite" name="specialite" type="text" class="champ__input" placeholder="Ex : Cardiologie, Pediatrie..." required>
+                                <p class="champ__erreur" id="erreur-specialite" hidden></p>
+                            </div>
+
+                            <h2 class="page-inscription__section-titre">Etablissement</h2>
+
+                            <div class="champ">
+                                <label for="champ-etablissement" class="champ__label">
+                                    Etablissement d'exercice <span class="champ__obligatoire">*</span>
+                                </label>
+                                <input id="champ-etablissement" name="etablissementNom" type="text" class="champ__input" placeholder="Ex : CNHU-HKM Cotonou" required>
+                                <p class="champ__erreur" id="erreur-etablissement" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-ordre" class="champ__label">Numero d'ordre (optionnel)</label>
+                                <input id="champ-ordre" name="numeroOrdre" type="text" class="champ__input" placeholder="Ex : MED-BJ-2024-1234">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="page-inscription__section-titre">Contact</h2>
+
+                            <div class="champ">
+                                <label for="champ-telephone" class="champ__label">
+                                    Telephone <span class="champ__obligatoire">*</span>
+                                </label>
+                                <input id="champ-telephone" name="telephone" type="tel" class="champ__input" placeholder="Ex : 0197000505" required>
+                                <p class="champ__erreur" id="erreur-telephone" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-email" class="champ__label">Email (optionnel)</label>
+                                <input id="champ-email" name="email" type="email" class="champ__input" placeholder="exemple@hopital.bj">
+                                <p class="champ__erreur" id="erreur-email" hidden></p>
+                            </div>
+
+                            <h2 class="page-inscription__section-titre">Securite</h2>
+
+                            <div class="champ">
+                                <label for="champ-mdp" class="champ__label">
+                                    Mot de passe <span class="champ__obligatoire">*</span>
+                                </label>
+                                <div class="champ__conteneur-icone">
+                                    <input id="champ-mdp" name="motDePasse" type="password" class="champ__input champ__input--avec-icone-droite" placeholder="Minimum 8 caracteres" autocomplete="new-password" required>
+                                    <button type="button" id="bouton-afficher-mdp" class="champ__icone-droite" aria-label="Afficher le mot de passe">
+                                        <svg id="icone-oeil-ouvert" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        <svg id="icone-oeil-ferme" hidden width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p class="champ__erreur" id="erreur-mdp" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-confirmation" class="champ__label">
+                                    Confirmation <span class="champ__obligatoire">*</span>
+                                </label>
+                                <div class="champ__conteneur-icone">
+                                    <input id="champ-confirmation" name="confirmationMotDePasse" type="password" class="champ__input champ__input--avec-icone-droite" placeholder="Retapez le mot de passe" autocomplete="new-password" required>
+                                    <button type="button" id="bouton-afficher-confirmation" class="champ__icone-droite" aria-label="Afficher la confirmation">
+                                        <svg id="icone-conf-ouvert" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        <svg id="icone-conf-ferme" hidden width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p class="champ__erreur" id="erreur-confirmation" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label class="champ__checkbox">
+                                    <input id="champ-conditions" name="conditionsAcceptees" type="checkbox" required>
+                                    <span class="champ__checkbox-texte">
+                                        J'accepte les conditions d'utilisation et la politique de confidentialite.
+                                    </span>
+                                </label>
+                                <p class="champ__erreur" id="erreur-conditions" hidden></p>
+                            </div>
+
+                            <div class="page-inscription__actions">
+                                <button type="submit" id="bouton-inscription" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">
+                                    Creer mon compte
+                                </button>
+                                <p class="page-inscription__lien">
+                                    Vous avez deja un compte ? <br><br>
+                                    <a href="/connexion"><strong>Se connecter</strong></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/pages/inscription.js"></script>
+</body>
+</html>

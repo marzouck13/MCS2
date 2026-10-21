@@ -1,0 +1,272 @@
+/* ============================================
+   HERO
+   ============================================ */
+.patient-hero {
+    background-color: var(--primaire);
+    color: var(--texte-clair);
+    padding: 24px;
+    border-radius: var(--rayon-md);
+    margin-bottom: 20px;
+    box-shadow: var(--ombre-moyenne);
+}
+
+.patient-hero__label {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+
+.patient-hero__nom {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.patient-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.patient-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: var(--rayon-sm);
+    background-color: rgba(255, 255, 255, 0.18);
+    color: var(--texte-clair);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.patient-hero__badge--groupe {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   STATISTIQUES (une carte, 4 colonnes)
+   ============================================ */
+.patient-statistiques {
+    display: flex;
+    align-items: center;
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 14px 6px;
+    margin-bottom: 24px;
+}
+
+.patient-statistique {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.patient-statistique__icone {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--rayon-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.patient-statistique__icone--primaire {
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+}
+
+.patient-statistique__icone--succes {
+    background-color: var(--succes-transparent);
+    color: var(--succes);
+}
+
+.patient-statistique__icone--info {
+    background-color: var(--info-transparent);
+    color: var(--info);
+}
+
+.patient-statistique__icone--avertissement {
+    background-color: var(--avertissement-transparent);
+    color: var(--avertissement);
+}
+
+.patient-statistique__valeur {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texte);
+    line-height: 1;
+}
+
+.patient-statistique__label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.patient-statistique__separateur {
+    width: 1px;
+    height: 48px;
+    background-color: var(--separateur);
+    flex-shrink: 0;
+}
+
+/* ============================================
+   SECTION RACCOURCIS
+   ============================================ */
+.patient-section {
+    margin-bottom: 24px;
+}
+
+.patient-section__titre {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.patient-raccourcis {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.patient-raccourci {
+    display: block;
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 18px 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+
+.patient-raccourci:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.patient-raccourci--primaire:hover {
+    border-color: var(--primaire);
+    background-color: var(--primaire-transparent);
+}
+
+.patient-raccourci--secondaire:hover {
+    border-color: var(--secondaire);
+    background-color: var(--succes-transparent);
+}
+
+.patient-raccourci--info:hover {
+    border-color: var(--info);
+    background-color: var(--info-transparent);
+}
+
+.patient-raccourci--avertissement:hover {
+    border-color: var(--avertissement);
+    background-color: var(--avertissement-transparent);
+}
+
+.patient-raccourci__icone {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--rayon-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.patient-raccourci__icone--primaire {
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+}
+
+.patient-raccourci__icone--secondaire {
+    background-color: var(--succes-transparent);
+    color: var(--secondaire);
+}
+
+.patient-raccourci__icone--info {
+    background-color: var(--info-transparent);
+    color: var(--info);
+}
+
+.patient-raccourci__icone--avertissement {
+    background-color: var(--avertissement-transparent);
+    color: var(--avertissement);
+}
+
+.patient-raccourci__titre {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 4px;
+}
+
+.patient-raccourci__desc {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+    line-height: 1.4;
+}
+
+/* ============================================
+   NOTE BAS DE PAGE
+   ============================================ */
+.patient-note-bas {
+    text-align: center;
+    font-size: 11px;
+    color: var(--texte-desactive);
+    font-style: italic;
+    padding: 24px 20px 8px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (min-width: 640px) {
+    .patient-hero__nom {
+        font-size: 28px;
+    }
+
+    .patient-raccourcis {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .patient-hero {
+        padding: 28px;
+    }
+
+    .patient-hero__nom {
+        font-size: 30px;
+    }
+
+    .patient-statistiques {
+        padding: 20px 12px;
+    }
+
+    .patient-statistique__valeur {
+        font-size: 24px;
+    }
+
+    .patient-statistique__label {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,169 @@
+.onglets {
+    display: flex;
+    border-bottom: 2px solid var(--bordure);
+    margin-bottom: 16px;
+    gap: 4px;
+    overflow-x: auto;
+}
+
+.onglet {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texte-secondaire);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color 150ms ease, border-color 150ms ease;
+    white-space: nowrap;
+}
+
+.onglet:hover {
+    color: var(--texte);
+}
+
+.onglet--actif {
+    color: var(--primaire);
+    border-bottom-color: var(--primaire);
+}
+
+.onglet__compteur {
+    background-color: var(--fond-sombre);
+    color: var(--texte-secondaire);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--rayon-plein);
+}
+
+.onglet--actif .onglet__compteur {
+    background-color: var(--primaire);
+    color: var(--texte-clair);
+}
+
+.carte-metier {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 12px;
+}
+
+.carte-metier__entete {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.carte-metier__icone {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.carte-metier__icone--primaire { background-color: var(--primaire-transparent); color: var(--primaire); }
+.carte-metier__icone--info { background-color: var(--info-transparent); color: var(--info); }
+.carte-metier__icone--succes { background-color: var(--succes-transparent); color: var(--succes); }
+
+.carte-metier__date {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texte);
+}
+
+.carte-metier__medecin {
+    font-size: 12px;
+    color: var(--texte);
+    margin-top: 2px;
+}
+
+.carte-metier__etablissement {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+    margin-top: 2px;
+}
+
+.carte-metier__section {
+    margin-bottom: 12px;
+}
+
+.carte-metier__label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.carte-metier__texte {
+    font-size: 14px;
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+.carte-metier__constantes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.constante-tag {
+    background-color: var(--fond-sombre);
+    padding: 4px 10px;
+    border-radius: var(--rayon-sm);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--texte);
+}
+
+.carte-metier__code {
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--texte);
+    letter-spacing: 0.5px;
+}
+
+.etat-vide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.etat-vide__icone {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--fond-sombre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texte-desactive);
+    margin-bottom: 16px;
+}
+
+.etat-vide__titre {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.etat-vide__desc {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    max-width: 320px;
+}

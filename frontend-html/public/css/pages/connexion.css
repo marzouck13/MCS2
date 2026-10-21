@@ -1,0 +1,60 @@
+.page-connexion {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    background-color: var(--primaire);
+}
+
+.page-connexion__voile {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 76, 129, 0.95), rgba(15, 76, 129, 0.70), rgba(0, 0, 0, 0.60));
+}
+
+.page-connexion__carte {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--rayon-md);
+    box-shadow: var(--ombre-forte);
+    padding: 32px 28px;
+}
+
+.page-connexion__titre {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.page-connexion__sous-titre {
+    font-size: 15px;
+    color: var(--texte-secondaire);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.page-connexion__lien {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--texte-secondaire);
+}
+
+.page-connexion__lien a {
+    color: var(--primaire);
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .page-connexion__carte {
+        padding: 24px 20px;
+    }
+}

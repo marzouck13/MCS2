@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal d'acces - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/patient-journal-acces.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Journal d'acces</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="patient-journal__conteneur">
+                    <div class="patient-journal__entete">
+                        <h1 class="patient-journal__titre">Journal d'acces</h1>
+                        <p class="patient-journal__sous-titre">Historique complet de toutes les consultations de votre dossier médical.</p>
+                    </div>
+
+                    <div id="chargement" class="message message--avertissement" style="justify-content: center;">Chargement...</div>
+
+                    <div id="zone-contenu" hidden>
+                        <div class="patient-journal__stats" id="stats-repartition"></div>
+
+                        <div class="patient-journal__filtres" id="filtres">
+                            <button type="button" class="patient-journal__filtre patient-journal__filtre--actif" data-filtre="tous">Tous</button>
+                            <button type="button" class="patient-journal__filtre" data-filtre="lecture">Lectures</button>
+                            <button type="button" class="patient-journal__filtre" data-filtre="modification">Modifs</button>
+                            <button type="button" class="patient-journal__filtre" data-filtre="urgence">Urgences</button>
+                        </div>
+
+                        <div id="liste-acces"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/layout-patient.js"></script>
+    <script src="/js/pages/patient-journal-acces.js"></script>
+</body>
+</html>

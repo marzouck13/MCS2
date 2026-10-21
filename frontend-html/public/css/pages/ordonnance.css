@@ -1,0 +1,156 @@
+.ordonnance__conteneur {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.ordonnance__section-titre {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 24px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--bordure);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.medicament-ligne {
+    background-color: var(--fond);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.medicament-ligne__entete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.medicament-ligne__titre {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.medicament-ligne__supprimer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--rayon-md);
+    color: var(--urgence);
+    transition: background-color 150ms ease;
+}
+
+.medicament-ligne__supprimer:hover {
+    background-color: var(--urgence-transparent);
+}
+
+.medicament-ligne__grille {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 12px;
+}
+
+.ordonnance__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.ordonnance__code {
+    display: inline-block;
+    background-color: var(--primaire-transparent);
+    border-radius: var(--rayon-md);
+    padding: 12px 20px;
+    margin: 16px 0;
+}
+
+.ordonnance__code-texte {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primaire);
+    letter-spacing: 1px;
+}
+
+.ordonnance__succes {
+    text-align: center;
+    padding: 24px 16px;
+}
+
+.ordonnance__succes-icone {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-color: var(--succes-transparent);
+    color: var(--succes);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ordonnance__succes-titre {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.ordonnance__succes-desc {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    margin-bottom: 8px;
+}
+
+.ordonnance__succes-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+@media (min-width: 640px) {
+    .medicament-ligne__grille {
+        grid-template-columns: 1fr 1fr;
+    }
+    .ordonnance__actions {
+        flex-direction: row;
+    }
+    .ordonnance__actions .bouton--primaire {
+        flex: 1;
+    }
+    .ordonnance__succes-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media print {
+    .sidebar,
+    .layout-pro__entete-mobile,
+    .ordonnance__actions,
+    .ordonnance__succes-actions .bouton--neutre {
+        display: none !important;
+    }
+    .layout-pro {
+        display: block;
+    }
+    .layout-pro__principal {
+        padding: 0;
+    }
+    .ordonnance__succes {
+        padding: 0;
+    }
+}

@@ -1,0 +1,99 @@
+.qr-urgence__conteneur { max-width: 640px; margin: 0 auto; }
+
+/* Bandeau */
+.qr-urgence__bandeau {
+    display: flex;
+    gap: 14px;
+    padding: 16px;
+    background-color: var(--urgence);
+    color: var(--texte-clair);
+    border-radius: var(--rayon-md);
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(192, 57, 43, 0.25);
+}
+.qr-urgence__bandeau-icone {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--rayon-md);
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.qr-urgence__bandeau-titre { font-size: 14px; font-weight: 800; letter-spacing: 0.6px; margin-bottom: 4px; }
+.qr-urgence__bandeau-texte { font-size: 12px; line-height: 1.5; opacity: 0.95; }
+
+/* État vide */
+.qr-urgence__vide { text-align: center; padding: 32px 20px; background-color: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon-md); }
+.qr-urgence__vide-icone {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: var(--urgence-transparent);
+    color: var(--urgence);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qr-urgence__vide-titre { font-size: 18px; font-weight: 700; color: var(--texte); margin-bottom: 10px; }
+.qr-urgence__vide-texte { font-size: 13px; color: var(--texte-secondaire); line-height: 1.6; max-width: 400px; margin: 0 auto 24px; }
+
+/* QR actif */
+.qr-urgence__carte {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--urgence);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tous les enfants */
+    margin-bottom: 12px;
+    box-shadow: 0 4px 16px rgba(192, 57, 43, 0.15);
+}
+.qr-urgence__badge-actif {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: var(--rayon-md);
+    background-color: var(--urgence-transparent);
+    color: var(--urgence);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    margin-bottom: 16px;
+}
+.qr-urgence__point-actif { width: 7px; height: 7px; border-radius: 50%; background-color: var(--urgence); }
+
+.qr-urgence__image-conteneur {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: var(--rayon-md);
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 240px;
+}
+.qr-urgence__code-texte { font-size: 10px; font-weight: 700; color: var(--texte-secondaire); letter-spacing: 0.4px; margin-bottom: 12px; word-break: break-all; text-align: center; }
+
+.qr-urgence__date { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; font-style: italic; color: var(--texte-secondaire); margin-bottom: 20px; }
+
+.qr-urgence__bouton-revoquer { margin-top: 8px; background-color: var(--texte-secondaire); color: #fff; border: none; }
+
+/* Aperçu */
+.qr-urgence__apercu { background-color: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon-md); margin-top: 20px; overflow: hidden; }
+.qr-urgence__apercu-entete { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background-color: var(--urgence-transparent); color: var(--urgence); }
+.qr-urgence__apercu-titre { font-size: 13px; font-weight: 800; }
+.qr-urgence__apercu-liste { padding: 0; }
+.qr-urgence__apercu-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--separateur); }
+.qr-urgence__apercu-item:last-child { border-bottom: none; }
+.qr-urgence__apercu-item-icone { width: 30px; height: 30px; border-radius: var(--rayon-md); background-color: var(--fond); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--urgence); }
+.qr-urgence__apercu-item-icone--manquant { color: var(--texte-desactive); }
+.qr-urgence__apercu-item-label { font-size: 10px; font-weight: 800; color: var(--texte-secondaire); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 3px; }
+.qr-urgence__apercu-item-valeur { font-size: 14px; font-weight: 600; color: var(--texte); }
+.qr-urgence__apercu-item-valeur--manquant { color: var(--texte-desactive); font-style: italic; }
+.qr-urgence__apercu-note { display: flex; align-items: flex-start; gap: 6px; padding: 10px 14px; background-color: var(--info-transparent); font-size: 11px; color: var(--texte); line-height: 1.5; }
+.qr-urgence__apercu-note svg { flex-shrink: 0; margin-top: 2px; color: var(--info); }

@@ -1,0 +1,60 @@
+.qr-proches__conteneur { max-width: 720px; margin: 0 auto; }
+.qr-proches__entete { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; gap: 12px; flex-wrap: wrap; }
+.qr-proches__titre { font-size: 22px; font-weight: 800; color: var(--texte); }
+
+/* Cartes QR proche */
+.qr-proche__carte {
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 16px;
+    margin-bottom: 12px;
+}
+.qr-proche__carte--inactive { opacity: 0.65; }
+
+.qr-proche__entete { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.qr-proche__avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.qr-proche__avatar--standard { background-color: var(--primaire-transparent); color: var(--primaire); }
+.qr-proche__avatar--urgence { background-color: var(--urgence-transparent); color: var(--urgence); }
+.qr-proche__infos { flex: 1; min-width: 0; }
+.qr-proche__nom { font-size: 15px; font-weight: 700; color: var(--texte); }
+.qr-proche__meta { font-size: 12px; color: var(--texte-secondaire); margin-top: 2px; }
+
+.qr-proche__badge { flex-shrink: 0; padding: 4px 10px; border-radius: var(--rayon-sm); font-size: 10px; font-weight: 800; letter-spacing: 0.4px; }
+.qr-proche__badge--actif { background-color: var(--succes-transparent); color: var(--succes); }
+.qr-proche__badge--inactif { background-color: var(--fond-sombre); color: var(--texte-desactive); }
+
+.qr-proche__details { background-color: var(--fond); border-radius: var(--rayon-md); padding: 10px 12px; margin-bottom: 10px; }
+.qr-proche__detail { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--texte-secondaire); margin-bottom: 4px; }
+.qr-proche__detail:last-child { margin-bottom: 0; }
+.qr-proche__detail svg { flex-shrink: 0; }
+
+.qr-proche__actions { display: flex; gap: 8px; }
+.qr-proche__actions .bouton { flex: 1; }
+
+/* État vide */
+.qr-proches__vide { text-align: center; padding: 48px 24px; background-color: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon-md); }
+.qr-proches__vide-icone { width: 80px; height: 80px; border-radius: 50%; background-color: var(--fond-sombre); color: var(--texte-desactive); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.qr-proches__vide-titre { font-size: 16px; font-weight: 700; color: var(--texte); margin-bottom: 8px; }
+.qr-proches__vide-texte { font-size: 13px; color: var(--texte-secondaire); line-height: 1.6; max-width: 400px; margin: 0 auto 20px; }
+
+/* Modale ajout */
+.qr-proches__info-modale { display: flex; gap: 10px; padding: 12px; background-color: var(--primaire-transparent); border: 1px solid var(--primaire); border-radius: var(--rayon-md); font-size: 12px; color: var(--texte); line-height: 1.5; margin-bottom: 20px; }
+.qr-proches__info-modale svg { flex-shrink: 0; color: var(--primaire); margin-top: 2px; }
+
+.badge-verifie-proche { background-color: var(--succes-transparent); border: 1px solid var(--succes); border-radius: var(--rayon-md); padding: 10px 14px; margin-bottom: 16px; }
+
+.qr-proches__type-grille { display: flex; flex-direction: column; gap: 10px; }
+.qr-proches__type-option { cursor: pointer; }
+.qr-proches__type-option-contenu { display: flex; align-items: center; gap: 12px; padding: 12px; border: 2px solid var(--bordure); border-radius: var(--rayon-md); transition: all 150ms ease; }
+.qr-proches__type-option--actif .qr-proches__type-option-contenu { border-color: var(--primaire); background-color: var(--primaire-transparent); }
+.qr-proches__type-icone { width: 36px; height: 36px; border-radius: var(--rayon-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.qr-proches__type-icone--primaire { background-color: var(--primaire-transparent); color: var(--primaire); }
+.qr-proches__type-icone--urgence { background-color: var(--urgence-transparent); color: var(--urgence); }
+.qr-proches__type-label { font-size: 14px; font-weight: 700; color: var(--texte); margin-bottom: 2px; }
+.qr-proches__type-desc { font-size: 11px; color: var(--texte-secondaire); }
+
+@media (min-width: 640px) {
+    .qr-proches__type-grille { flex-direction: row; }
+    .qr-proches__type-option { flex: 1; }
+}

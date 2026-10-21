@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consentements - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/modale.css">
+    <link rel="stylesheet" href="/css/pages/patient-consentements.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Consentements</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="patient-consentements__conteneur">
+                    <div class="patient-consentements__entete">
+                        <div>
+                            <h1 class="patient-consentements__titre">Consentements</h1>
+                            <p class="patient-consentements__sous-titre">Gérez les accès à votre dossier médical.</p>
+                        </div>
+                        <button type="button" id="bouton-nouveau-consentement" class="bouton bouton--primaire">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Nouveau consentement
+                        </button>
+                    </div>
+
+                    <div class="patient-consentements__filtres">
+                        <button type="button" class="patient-consentements__filtre patient-consentements__filtre--actif" data-statut="">Tous</button>
+                        <button type="button" class="patient-consentements__filtre" data-statut="actif">Actifs</button>
+                        <button type="button" class="patient-consentements__filtre" data-statut="revoque">Revoqués</button>
+                    </div>
+
+                    <div id="chargement" class="message message--avertissement" style="justify-content: center;">Chargement...</div>
+                    <div id="liste-consentements" hidden></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modale création -->
+    <div class="modale-overlay" id="modale-creation" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Accorder un consentement</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-creation">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps">
+                <div id="erreur-creation" hidden class="message message--erreur" style="margin-bottom: 16px;">
+                    <span class="message__icone">!</span>
+                    <p class="message__texte" id="texte-erreur-creation"></p>
+                </div>
+
+                <div class="champ">
+                    <label class="champ__label">1. Rechercher le professionnel <span class="champ__obligatoire">*</span></label>
+                    <input type="text" id="champ-npi-pro" class="champ__input" placeholder="Ex : 9876543210" maxlength="10" inputmode="numeric">
+                </div>
+                <div id="actions-npi" style="margin-bottom: 16px;">
+                    <button type="button" id="bouton-rechercher-pro" class="bouton bouton--secondaire" style="width: 100%;">Rechercher le professionnel</button>
+                </div>
+                <div id="badge-pro-trouve" hidden class="patient-consentements__badge-pro">
+                    <div>
+                        <p style="font-size: 11px; font-weight: 700; color: var(--succes); margin-bottom: 2px;">✓ Professionnel trouvé</p>
+                        <p style="font-size: 14px; font-weight: 700; color: var(--texte);" id="nom-pro-trouve">-</p>
+                        <p style="font-size: 12px; color: var(--texte-secondaire);" id="spec-pro-trouve">-</p>
+                    </div>
+                    <button type="button" id="bouton-changer-pro" style="background: none; border: none; color: var(--primaire); font-size: 12px; font-weight: 700; cursor: pointer; text-decoration: underline;">Changer</button>
+                </div>
+
+                <div id="etape-2" hidden>
+                    <div class="champ">
+                        <label class="champ__label">2. Type d'accès <span class="champ__obligatoire">*</span></label>
+                        <select id="champ-type" class="champ__input champ__select">
+                            <option value="acces_medecin">Accès médecin (dossier complet)</option>
+                            <option value="acces_pharmacie">Accès pharmacie (ordonnances)</option>
+                        </select>
+                    </div>
+
+                    <div class="champ">
+                        <label class="champ__label">3. Durée</label>
+                        <select id="champ-duree" class="champ__input champ__select">
+                            <option value="24">24 heures</option>
+                            <option value="168">7 jours</option>
+                            <option value="720">30 jours</option>
+                            <option value="">Sans limite</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="bouton-accorder" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur" style="margin-top: 16px;">
+                        Accorder le consentement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/layout-patient.js"></script>
+    <script src="/js/pages/patient-consentements.js"></script>
+</body>
+</html>

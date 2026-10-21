@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode Urgence - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/modale.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/mode-urgence.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Mode Urgence</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="urgence__conteneur" id="zone-saisie">
+                    <div class="urgence__entete">
+                        <div class="urgence__icone" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17.01"></line></svg>
+                        </div>
+                        <h1 class="urgence__titre">Mode Urgence Vitale</h1>
+                        <p class="urgence__description">
+                            Ce mode permet un acces immediat aux informations vitales d'un patient sans consentement prealable. Chaque acces est trace et notifie par SMS.
+                        </p>
+                    </div>
+
+                    <div class="urgence__carte">
+                        <form id="formulaire-urgence" novalidate>
+                            <div class="champ">
+                                <label for="champ-npi" class="champ__label">Numero Personnel d'Identification (NPI) <span class="champ__obligatoire">*</span></label>
+                                <input
+                                    id="champ-npi"
+                                    type="text"
+                                    class="champ__input"
+                                    placeholder="Ex : 2222222222"
+                                    maxlength="10"
+                                    inputmode="numeric"
+                                    required
+                                >
+                                <p class="champ__erreur" id="erreur-npi" hidden></p>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <button type="submit" class="bouton bouton--danger bouton--grand">
+                                    Acceder aux informations vitales
+                                </button>
+                                <a href="/scanner-qr?mode=urgence" class="bouton bouton--neutre bouton--grand" style="text-decoration: none; text-align: center;">
+                                    Scanner un QR code d'urgence
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="urgence__conteneur" id="zone-resultats" hidden>
+                    <div class="urgence__bandeau">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17.01"></line></svg>
+                            Mode Urgence Actif
+                        </div>
+                        <span style="font-size: 11px; opacity: 0.8;">Acces trace</span>
+                    </div>
+
+                    <div class="urgence__resultats">
+                        <div class="urgence__identite">
+                            <div class="urgence__avatar" id="resultat-initiale">?</div>
+                            <div>
+                                <h2 class="urgence__nom" id="resultat-nom">-</h2>
+                                <p class="urgence__meta" id="resultat-details">-</p>
+                            </div>
+                        </div>
+
+                        <div class="urgence__grille">
+                            <div class="urgence__bloc urgence__bloc--danger">
+                                <p class="urgence__bloc-label"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--urgence);"></span> Groupe Sanguin</p>
+                                <p class="urgence__bloc-valeur" id="resultat-groupe">Non renseigne</p>
+                            </div>
+                            <div class="urgence__bloc urgence__bloc--avertissement">
+                                <p class="urgence__bloc-label"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--avertissement);"></span> Allergies</p>
+                                <p class="urgence__bloc-valeur" id="resultat-allergies">Aucune connue</p>
+                            </div>
+                            <div class="urgence__bloc urgence__bloc--info urgence__bloc--pleine-largeur">
+                                <p class="urgence__bloc-label"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--info);"></span> Maladies chroniques</p>
+                                <p class="urgence__bloc-valeur" id="resultat-maladies">Aucune connue</p>
+                            </div>
+                        </div>
+
+                        <div class="urgence__contact" id="resultat-contact" hidden>
+                            <div class="urgence__contact-icone">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div>
+                                <p style="font-size: 11px; font-weight: 800; color: var(--texte-secondaire); text-transform: uppercase;">Contact d'urgence</p>
+                                <p style="font-size: 14px; font-weight: 700; color: var(--texte);" id="contact-nom">-</p>
+                                <p style="font-size: 13px; color: var(--primaire);" id="contact-tel">-</p>
+                            </div>
+                        </div>
+
+                        <a href="/tableau-bord" class="bouton bouton--neutre bouton--grand bouton--pleine-largeur" style="text-decoration: none; text-align: center;">Terminer l'acces d'urgence</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modale-overlay" id="modale-confirmation" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Confirmer l'acces d'urgence</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps">
+                <div class="message message--erreur" style="margin-bottom: 16px;">
+                    <span class="message__icone">!</span>
+                    <div class="message__texte">
+                        <p style="font-weight: 700; margin-bottom: 4px;">Action critique</p>
+                        <p style="font-size: 13px;">Vous etes sur le point d'acceder au dossier medical du patient sans son consentement.</p>
+                    </div>
+                </div>
+                <p style="font-size: 13px; margin-bottom: 16px; color: var(--texte);">
+                    Cet acces sera <strong>enregistre</strong> dans le journal du patient et celui-ci recevra une <strong>notification SMS</strong>.
+                </p>
+                <label class="champ__checkbox" style="margin-bottom: 24px;">
+                    <input type="checkbox" id="check-confirmation">
+                    <span class="champ__checkbox-texte">Je confirme agir dans un cadre d'urgence vitale absolue et assume l'entiere responsabilite de cet acces.</span>
+                </label>
+                <div class="modale__actions" style="border-top: none; padding-top: 0;">
+                    <button type="button" class="bouton bouton--neutre" id="annuler-confirmation">Annuler</button>
+                    <button type="button" class="bouton bouton--danger" id="confirmer-acces" disabled>Confirmer l'acces</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/pages/mode-urgence.js"></script>
+</body>
+</html>

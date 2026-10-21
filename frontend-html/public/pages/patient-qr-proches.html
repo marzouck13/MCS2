@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR pour proches - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/modale.css">
+    <link rel="stylesheet" href="/css/pages/patient-qr-proches.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">QR pour proches</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="qr-proches__conteneur">
+                    <div class="qr-proches__entete">
+                        <h1 class="qr-proches__titre">QR codes pour mes proches</h1>
+                        <button type="button" id="bouton-ajouter-proche" class="bouton bouton--primaire">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Ajouter un proche
+                        </button>
+                    </div>
+
+                    <div id="chargement" class="message message--avertissement" style="justify-content: center;">Chargement...</div>
+                    <div id="liste-proches" hidden></div>
+                    <div id="etat-vide" hidden>
+                        <div class="qr-proches__vide">
+                            <div class="qr-proches__vide-icone">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <p class="qr-proches__vide-titre">Aucun QR pour un proche</p>
+                            <p class="qr-proches__vide-texte">Générez un QR code pour un enfant, un conjoint, un parent ou une personne dont vous êtes le tuteur légal. Le proche doit d'abord être inscrit sur Mon Carnet Santé.</p>
+                            <button type="button" id="bouton-premier-proche" class="bouton bouton--secondaire">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                Ajouter mon premier proche
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modale d'ajout -->
+    <div class="modale-overlay" id="modale-ajout" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Ajouter un proche</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-ajout">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps" style="max-height: 70vh; overflow-y: auto; padding: 24px;">
+                <div class="qr-proches__info-modale">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <p>Le proche doit déjà être inscrit sur Mon Carnet Santé. Vous allez signer un consentement de tuteur légal qui vous autorise à gérer son accès médical.</p>
+                </div>
+
+                <form id="formulaire-ajout">
+                    <div class="champ">
+                        <label class="champ__label">1. NPI du proche <span class="champ__obligatoire">*</span></label>
+                        <input type="text" id="champ-npi-proche" class="champ__input" placeholder="Ex : 2222222222" maxlength="10" inputmode="numeric" required>
+                        <p class="champ__erreur" id="erreur-npi-proche" hidden></p>
+                    </div>
+                    <div id="actions-npi">
+                        <button type="button" id="bouton-verifier-npi" class="bouton bouton--secondaire" style="width: 100%;">Vérifier le NPI</button>
+                    </div>
+                    <div id="badge-npi-verifie" hidden class="badge-verifie-proche">
+                        <p style="font-size: 11px; font-weight: 700; color: var(--succes); margin-bottom: 2px;">✓ NPI vérifié</p>
+                        <p style="font-size: 14px; font-weight: 700; color: var(--texte);" id="nom-proche-verifie">-</p>
+                    </div>
+
+                    <div id="etape-2" hidden>
+                        <div class="champ">
+                            <label class="champ__label">2. Relation <span class="champ__obligatoire">*</span></label>
+                            <select id="champ-relation" class="champ__input champ__select">
+                                <option value="">Sélectionnez...</option>
+                                <option value="enfant">Enfant</option>
+                                <option value="conjoint">Conjoint(e)</option>
+                                <option value="parent">Parent</option>
+                                <option value="frere_soeur">Frère ou sœur</option>
+                                <option value="grand_parent">Grand-parent</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="champ">
+                            <label class="champ__label">3. Votre qualité de tuteur <span class="champ__obligatoire">*</span></label>
+                            <select id="champ-motif" class="champ__input champ__select">
+                                <option value="">Sélectionnez...</option>
+                                <option value="parent_legal">Parent légal</option>
+                                <option value="tuteur_legal">Tuteur légal</option>
+                                <option value="curateur">Curateur</option>
+                                <option value="mandataire_familial">Mandataire familial</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="champ">
+                            <label class="champ__label">4. Type de QR</label>
+                            <div class="qr-proches__type-grille">
+                                <label class="qr-proches__type-option" data-type="standard">
+                                    <input type="radio" name="type-qr" value="standard" checked style="display: none;">
+                                    <div class="qr-proches__type-option-contenu">
+                                        <div class="qr-proches__type-icone qr-proches__type-icone--primaire">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><line x1="14" y1="14" x2="14" y2="14.01"></line><line x1="21" y1="14" x2="21" y2="21"></line><line x1="14" y1="21" x2="14" y2="21.01"></line><line x1="18" y1="21" x2="18" y2="21.01"></line><line x1="21" y1="18" x2="21" y2="18.01"></line></svg>
+                                        </div>
+                                        <div>
+                                            <p class="qr-proches__type-label">Standard</p>
+                                            <p class="qr-proches__type-desc">QR bleu, temporaire, usage unique</p>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="qr-proches__type-option" data-type="urgence_permanent">
+                                    <input type="radio" name="type-qr" value="urgence_permanent" style="display: none;">
+                                    <div class="qr-proches__type-option-contenu">
+                                        <div class="qr-proches__type-icone qr-proches__type-icone--urgence">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17.01"></line></svg>
+                                        </div>
+                                        <div>
+                                            <p class="qr-proches__type-label">Urgence permanent</p>
+                                            <p class="qr-proches__type-desc">QR rouge, valable 10 ans</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="champ" id="champ-duree-standard">
+                            <label class="champ__label">5. Durée de validité</label>
+                            <select id="champ-duree" class="champ__input champ__select">
+                                <option value="24">24 heures</option>
+                                <option value="168">7 jours</option>
+                                <option value="720">30 jours</option>
+                            </select>
+                        </div>
+
+                        <div class="champ" style="margin-top: 20px;">
+                            <label class="champ__checkbox">
+                                <input type="checkbox" id="champ-consentement">
+                                <span class="champ__checkbox-texte">Je certifie sur l'honneur être le représentant légal de ce proche et je l'autorise à accéder à ses informations médicales via ce QR code. Je peux révoquer ce consentement à tout moment.</span>
+                            </label>
+                            <p class="champ__erreur" id="erreur-consentement" hidden></p>
+                        </div>
+
+                        <button type="submit" id="bouton-enregistrer-proche" class="bouton bouton--primaire bouton--plein-largeur bouton--grand" style="margin-top: 16px;" disabled>
+                            Générer le QR code
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale d'affichage QR -->
+    <div class="modale-overlay" id="modale-afficher" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">QR code du proche</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-afficher">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps" style="text-align: center; padding: 24px;">
+                <div id="modal-afficher-canvas" style="display: inline-block; padding: 16px; background-color: #fff; border-radius: 8px; margin-bottom: 16px;"></div>
+                <p id="modal-afficher-nom" style="font-size: 16px; font-weight: 800; color: var(--texte); margin-bottom: 4px;">-</p>
+                <p id="modal-afficher-relation" style="font-size: 13px; color: var(--texte-secondaire); margin-bottom: 16px;">-</p>
+                <p id="modal-afficher-code" style="font-size: 11px; font-weight: 700; color: var(--texte-secondaire); letter-spacing: 0.4px; word-break: break-all;">-</p>
+                <p id="modal-afficher-date" style="font-size: 11px; font-style: italic; color: var(--texte-desactive); margin-top: 6px;">-</p>
+
+                <div class="modale__actions" style="justify-content: center; border-top: none; padding-top: 0; margin-top: 20px; flex-wrap: wrap;">
+                    <button type="button" id="bouton-partager-qr" class="bouton bouton--secondaire" style="flex: 1; min-width: 120px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        Partager
+                    </button>
+                    <button type="button" id="bouton-telecharger-qr" class="bouton bouton--primaire" style="flex: 1; min-width: 120px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Télécharger
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/utilitaires-qr.js"></script>
+    <script src="/js/layout-patient.js"></script>
+    <script src="/js/pages/patient-qr-proches.js"></script>
+</body>
+</html>

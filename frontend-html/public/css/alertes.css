@@ -1,0 +1,76 @@
+.alerte-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 9999;
+}
+
+.alerte-overlay[hidden] {
+    display: none !important;
+}
+
+.alerte {
+    background-color: var(--fond-carte);
+    border-radius: var(--rayon-md);
+    box-shadow: var(--ombre-forte);
+    width: 100%;
+    max-width: 440px;
+    padding: 24px;
+    text-align: center;
+}
+
+.alerte__icone {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alerte--erreur .alerte__icone {
+    background-color: var(--erreur-transparent);
+    color: var(--erreur);
+}
+
+.alerte--succes .alerte__icone {
+    background-color: var(--succes-transparent);
+    color: var(--succes);
+}
+
+.alerte--avertissement .alerte__icone {
+    background-color: var(--avertissement-transparent);
+    color: var(--avertissement);
+}
+
+.alerte--info .alerte__icone {
+    background-color: var(--info-transparent);
+    color: var(--info);
+}
+
+.alerte__titre {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.alerte__message {
+    font-size: 14px;
+    color: var(--texte-secondaire);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    white-space: pre-line;
+}
+
+.alerte__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}

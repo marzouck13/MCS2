@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/pages/tableau-bord.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Tableau de bord</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <section class="tableau-bord__hero">
+                    <p class="tableau-bord__hero-label">Bonjour,</p>
+                    <h1 class="tableau-bord__hero-nom" id="hero-nom">Chargement...</h1>
+                    <p class="tableau-bord__hero-specialite" id="hero-specialite"></p>
+                </section>
+
+                <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <p id="texte-erreur" class="message__texte"></p>
+                </div>
+
+                <div class="tableau-bord__stats">
+                    <div class="tableau-bord__stat-carte">
+                        <div class="tableau-bord__stat-icone tableau-bord__stat-icone--primaire" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path>
+                                <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path>
+                                <circle cx="20" cy="10" r="2"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="tableau-bord__stat-valeur" id="stat-consultations">0</p>
+                            <p class="tableau-bord__stat-label">Consultations</p>
+                        </div>
+                    </div>
+                    <div class="tableau-bord__stat-carte">
+                        <div class="tableau-bord__stat-icone tableau-bord__stat-icone--succes" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="tableau-bord__stat-valeur" id="stat-ordonnances">0</p>
+                            <p class="tableau-bord__stat-label">Ordonnances</p>
+                        </div>
+                    </div>
+                    <div class="tableau-bord__stat-carte">
+                        <div class="tableau-bord__stat-icone tableau-bord__stat-icone--info" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="tableau-bord__stat-valeur" id="stat-acces">0</p>
+                            <p class="tableau-bord__stat-label">Acces au dossier</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="tableau-bord__section-titre">Actions rapides</h2>
+                <div class="tableau-bord__actions">
+                    <a href="/recherche-patient" class="tableau-bord__action-carte tableau-bord__action-carte--primaire">
+                        <div class="tableau-bord__action-icone tableau-bord__action-icone--primaire">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="tableau-bord__action-libelle">Rechercher un patient</p>
+                            <p class="tableau-bord__action-desc">NPI ou scan QR</p>
+                        </div>
+                    </a>
+                    <a href="/scanner-qr" class="tableau-bord__action-carte tableau-bord__action-carte--info">
+                        <div class="tableau-bord__action-icone tableau-bord__action-icone--info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                                <line x1="14" y1="14" x2="14" y2="14.01"></line>
+                                <line x1="21" y1="14" x2="21" y2="21"></line>
+                                <line x1="14" y1="21" x2="14" y2="21.01"></line>
+                                <line x1="18" y1="21" x2="18" y2="21.01"></line>
+                                <line x1="21" y1="18" x2="21" y2="18.01"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="tableau-bord__action-libelle">Scanner un QR code</p>
+                            <p class="tableau-bord__action-desc">Acces rapide au dossier</p>
+                        </div>
+                    </a>
+                    <a href="/urgence" class="tableau-bord__action-carte tableau-bord__action-carte--urgence">
+                        <div class="tableau-bord__action-icone tableau-bord__action-icone--urgence">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12" y2="17.01"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="tableau-bord__action-libelle">Mode urgence</p>
+                            <p class="tableau-bord__action-desc">Acces vital sans consentement</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h2 class="tableau-bord__section-titre" style="margin-bottom: 12px;">Dernieres consultations</h2>
+                    <a href="/recherche-patient" style="font-size: 12px; font-weight: 700; color: var(--primaire);" id="lien-voir-plus" hidden>Voir plus</a>
+                </div>
+
+                <div class="tableau-bord__liste" id="liste-consultations">
+                    <div class="tableau-bord__vide" id="chargement-consultations">Chargement...</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/pages/tableau-bord.js"></script>
+</body>
+</html>

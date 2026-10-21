@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salle Visio - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/salle-visio.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu" style="height: 100vh; overflow: hidden;">
+            <div class="page-visio">
+                <header class="page-visio__entete">
+                    <div>
+                        <p class="page-visio__titre" id="visio-titre">Visio</p>
+                        <p class="page-visio__sous-titre">Session de teleconsultation en cours (MiroTalk)</p>
+                    </div>
+                    <div class="page-visio__actions">
+                        <button type="button" class="bouton bouton--neutre bouton--petit" id="bouton-copier">
+                            Copier le lien
+                        </button>
+                        <button type="button" class="bouton bouton--danger bouton--petit" id="bouton-quitter">
+                            Quitter
+                        </button>
+                    </div>
+                </header>
+
+                <div class="page-visio__iframe-conteneur">
+                    <iframe
+                        id="visio-iframe"
+                        class="page-visio__iframe"
+                        src="about:blank"
+                        title="Salle de teleconsultation"
+                        allow="camera; microphone; display-capture; fullscreen; autoplay; clipboard-write"
+                        referrerpolicy="origin"
+                    ></iframe>
+
+                    <div class="page-visio__chargement" id="visio-chargement">
+                        <div class="page-visio__spinner"></div>
+                        <p class="page-visio__chargement-texte">Preparation de la salle...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/pages/salle-visio.js"></script>
+</body>
+</html>

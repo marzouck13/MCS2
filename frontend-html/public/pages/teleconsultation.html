@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleconsultations - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/modale.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/teleconsultation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Teleconsultations</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="teleconsultation__conteneur">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                        <h1 style="font-size: 24px; font-weight: 800; color: var(--texte);">Mes teleconsultations</h1>
+                        <button type="button" id="bouton-nouvelle-session" class="bouton bouton--primaire">
+                            Nouvelle session
+                        </button>
+                    </div>
+
+                    <div id="zone-chargement" class="message message--avertissement" style="justify-content: center;">Chargement...</div>
+                    <div id="liste-sessions" class="teleconsultation__liste" hidden></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modale-overlay" id="modale-creation" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Nouvelle teleconsultation</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-creation">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps">
+                <form id="formulaire-creation">
+                    <p style="font-size: 13px; color: var(--texte-secondaire); margin-bottom: 16px;">
+                        Une session sera creee et un QR code sera genere. Le patient pourra le scanner pour rejoindre.
+                    </p>
+                    <div class="champ">
+                        <label class="champ__label">Motif (optionnel)</label>
+                        <input type="text" id="champ-motif" class="champ__input" placeholder="Ex : Consultation de suivi">
+                    </div>
+                    <div class="modale__actions">
+                        <button type="button" class="bouton bouton--neutre" id="annuler-creation">Annuler</button>
+                        <button type="submit" class="bouton bouton--primaire" id="bouton-generer">Generer la session</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modale-overlay" id="modale-qr" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Invitation a la teleconsultation</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-qr">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps" style="text-align: center;">
+                <p style="font-size: 13px; color: var(--texte-secondaire); margin-bottom: 16px;">
+                    Demandez au patient de scanner ce QR code ou partagez-le lui directement.
+                </p>
+                <div class="qr-conteneur-teleconsultation" id="qr-teleconsultation-conteneur">
+                    <div id="qrcode-session"></div>
+                    <p class="qr-code-session" id="code-session-qr">-</p>
+                    <p class="qr-code-label">Mon Carnet Sante - Teleconsultation</p>
+                </div>
+                <div class="modale__actions" style="justify-content: center; border-top: none; padding-top: 0; gap: 8px;">
+                    <button type="button" class="bouton bouton--neutre" id="fermer-qr">Fermer</button>
+                    <button type="button" class="bouton bouton--primaire" id="bouton-partager">Partager le QR code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/partage-visio.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/pages/teleconsultation.js"></script>
+</body>
+</html>

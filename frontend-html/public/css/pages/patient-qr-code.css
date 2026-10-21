@@ -1,0 +1,169 @@
+.qr-patient__conteneur { max-width: 720px; margin: 0 auto; }
+
+/* Carte info */
+.qr-patient__info {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    background-color: var(--primaire-transparent);
+    border: 1px solid var(--primaire);
+    border-radius: var(--rayon-md);
+    color: var(--texte);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+.qr-patient__info svg { flex-shrink: 0; color: var(--primaire); margin-top: 2px; }
+
+/* Raccourcis */
+.qr-patient__raccourcis { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+.qr-patient__raccourci {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: var(--rayon-md);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent;
+    transition: all 150ms ease;
+}
+.qr-patient__raccourci:hover { text-decoration: none; transform: translateY(-2px); }
+.qr-patient__raccourci--danger { background-color: var(--urgence-transparent); border-color: var(--urgence); }
+.qr-patient__raccourci--succes { background-color: var(--succes-transparent); border-color: var(--secondaire); }
+
+.qr-patient__raccourci-icone {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--rayon-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: var(--fond-carte);
+}
+.qr-patient__raccourci--danger .qr-patient__raccourci-icone { color: var(--urgence); }
+.qr-patient__raccourci--succes .qr-patient__raccourci-icone { color: var(--secondaire); }
+
+.qr-patient__raccourci-titre { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
+.qr-patient__raccourci--danger .qr-patient__raccourci-titre { color: var(--urgence); }
+.qr-patient__raccourci--succes .qr-patient__raccourci-titre { color: var(--secondaire); }
+.qr-patient__raccourci-texte { font-size: 12px; color: var(--texte-secondaire); line-height: 1.4; }
+
+/* État vide */
+.qr-patient__vide {
+    text-align: center;
+    padding: 48px 24px;
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+}
+.qr-patient__vide-icone {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background-color: var(--fond-sombre);
+    color: var(--texte-desactive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qr-patient__vide-titre { font-size: 17px; font-weight: 700; color: var(--texte); margin-bottom: 8px; }
+.qr-patient__vide-texte { font-size: 14px; color: var(--texte-secondaire); line-height: 1.6; max-width: 400px; margin: 0 auto 24px; }
+
+/* Sélecteur de durée */
+.qr-patient__selecteur {
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.qr-patient__selecteur-label { font-size: 13px; font-weight: 700; color: var(--texte); margin-bottom: 10px; }
+.qr-patient__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.qr-patient__chip {
+    padding: 10px 16px;
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    background-color: var(--fond-carte);
+    color: var(--texte-secondaire);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+.qr-patient__chip:hover { border-color: var(--bordure-forte); }
+.qr-patient__chip--actif { border-color: var(--primaire); background-color: var(--primaire); color: var(--texte-clair); }
+.qr-patient__selecteur-aide { font-size: 11px; font-style: italic; color: var(--texte-secondaire); line-height: 1.5; }
+
+/* QR actif */
+.qr-patient__carte {
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.qr-patient__carte-entete { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 16px; }
+.qr-patient__badge-actif {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: var(--rayon-md);
+    background-color: var(--succes-transparent);
+    color: var(--succes);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+.qr-patient__point-actif { width: 7px; height: 7px; border-radius: 50%; background-color: var(--succes); }
+.qr-patient__duree { font-size: 12px; font-style: italic; color: var(--texte-secondaire); }
+
+.qr-patient__image-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 14px;
+}
+.qr-patient__image-conteneur {
+    padding: 12px;
+    background-color: #FFFFFF;
+    border-radius: var(--rayon-md);
+}
+.qr-patient__code-texte { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: var(--texte-secondaire); margin-bottom: 16px; word-break: break-all; text-align: center; }
+
+.qr-patient__compte { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 15px; font-weight: 800; color: var(--primaire); margin-bottom: 10px; width: 100%; }
+.qr-patient__compte--danger { color: var(--urgence); }
+
+.qr-patient__barre-progression { width: 100%; height: 5px; background-color: var(--fond-sombre); border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+.qr-patient__barre-remplie { height: 100%; background-color: var(--succes); border-radius: 4px; transition: width 1000ms linear, background-color 300ms ease; }
+.qr-patient__barre-remplie--danger { background-color: var(--urgence); }
+
+.qr-patient__date-expiration { font-size: 11px; font-style: italic; color: var(--texte-desactive); text-align: center; width: 100%; }
+
+/* Actions */
+.qr-patient__actions { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.qr-patient__actions .bouton { flex: 1; min-width: 100px; }
+.qr-patient__actions .bouton svg { margin-right: 6px; }
+
+.qr-patient__rappel-securite {
+    font-size: 11px;
+    font-style: italic;
+    color: var(--texte-secondaire);
+    text-align: center;
+    padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+    .qr-patient__raccourcis { grid-template-columns: repeat(2, 1fr); }
+}

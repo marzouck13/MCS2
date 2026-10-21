@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acces refuse - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/non-autorise.css">
+</head>
+<body>
+    <main class="page-non-autorise">
+        <div class="page-non-autorise__bloc">
+            <div class="page-non-autorise__icone" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                </svg>
+            </div>
+            <h1 class="page-non-autorise__titre">Acces refuse</h1>
+            <p class="page-non-autorise__description">
+                Vous n'avez pas les droits necessaires pour acceder a cette page.
+                Verifiez votre role ou reconnectez-vous avec un compte autorise.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                <button type="button" id="bouton-se-connecter" class="bouton bouton--primaire">
+                    Se reconnecter
+                </button>
+                <button type="button" id="bouton-retour" class="bouton bouton--neutre">
+                    Page precedente
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            document.getElementById('bouton-se-connecter').addEventListener('click', async function () {
+                try {
+                    await window.ClientMCS.fermerSession();
+                } catch {
+                    // Ignorer : on redirige de toute facon
+                }
+                window.location.href = '/connexion';
+            });
+
+            document.getElementById('bouton-retour').addEventListener('click', function () {
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = '/connexion';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.page-non-autorise {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.page-non-autorise__bloc {
+    max-width: 460px;
+    text-align: center;
+}
+
+.page-non-autorise__icone {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background-color: var(--urgence-transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--urgence);
+}
+
+.page-non-autorise__titre {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.page-non-autorise__description {
+    font-size: 15px;
+    color: var(--texte-secondaire);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}

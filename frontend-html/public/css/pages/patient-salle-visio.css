@@ -1,0 +1,103 @@
+.page-visio-patient {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.page-visio-patient__entete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 20px;
+    background-color: var(--fond-carte);
+    border-bottom: 2px solid var(--bordure);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.page-visio-patient__titre {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--texte);
+    font-family: monospace;
+}
+
+.page-visio-patient__sous-titre {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+    margin-top: 2px;
+}
+
+.page-visio-patient__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.page-visio-patient__actions .bouton {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.page-visio-patient__conteneur {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    background-color: #000000;
+}
+
+.page-visio-patient__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.page-visio-patient__chargement {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--texte-clair);
+    background-color: #000000;
+    z-index: 10;
+    padding: 24px;
+    text-align: center;
+}
+
+.page-visio-patient__spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--texte-clair);
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+.page-visio-patient__chargement-titre {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-visio-patient__chargement-aide {
+    font-size: 13px;
+    opacity: 0.75;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+@keyframes rotation {
+    to { transform: rotate(360deg); }
+}

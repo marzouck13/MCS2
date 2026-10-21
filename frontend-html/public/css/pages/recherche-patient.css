@@ -1,0 +1,219 @@
+.recherche__conteneur {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.recherche__formulaire {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.recherche__separateur {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.recherche__separateur-ligne {
+    flex: 1;
+    height: 1px;
+    background-color: var(--bordure);
+}
+
+.recherche__separateur-texte {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.recherche__etat-vide {
+    text-align: center;
+    padding: 32px 16px;
+}
+
+.recherche__etat-vide-icone {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-color: var(--fond-sombre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texte-desactive);
+}
+
+.recherche__etat-vide-texte {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    line-height: 1.6;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.recherche__resultat-titre {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.recherche__resultat-point {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--succes);
+}
+
+.recherche__resultat-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.carte-patient {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    overflow: hidden;
+}
+
+.carte-patient__bandeau {
+    height: 4px;
+    background-color: var(--avertissement);
+}
+
+.carte-patient__bandeau--succes {
+    background-color: var(--succes);
+}
+
+.carte-patient__corps {
+    padding: 20px;
+}
+
+.carte-patient__identite {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--bordure);
+}
+
+.carte-patient__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.carte-patient__infos {
+    flex: 1;
+    min-width: 0;
+}
+
+.carte-patient__nom {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.carte-patient__detail {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    margin-top: 2px;
+}
+
+.carte-patient__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.carte-patient__consentement {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    border-radius: var(--rayon-md);
+    margin-bottom: 16px;
+    border: 2px solid transparent;
+}
+
+.carte-patient__consentement--succes {
+    background-color: var(--succes-transparent);
+    border-color: var(--succes);
+}
+
+.carte-patient__consentement--avertissement {
+    background-color: var(--avertissement-transparent);
+    border-color: var(--avertissement);
+}
+
+.carte-patient__consentement-icone {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.carte-patient__consentement--succes .carte-patient__consentement-icone {
+    color: var(--succes);
+}
+
+.carte-patient__consentement--avertissement .carte-patient__consentement-icone {
+    color: var(--avertissement);
+}
+
+.carte-patient__consentement-texte {
+    font-size: 12px;
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+.carte-patient__consentement-titre {
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.carte-patient__consentement--succes .carte-patient__consentement-titre {
+    color: var(--succes);
+}
+
+.carte-patient__consentement--avertissement .carte-patient__consentement-titre {
+    color: var(--avertissement);
+}
+
+.carte-patient__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (min-width: 640px) {
+    .carte-patient__actions {
+        flex-direction: row;
+    }
+    .carte-patient__actions .bouton {
+        flex: 1;
+    }
+}

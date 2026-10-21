@@ -1,0 +1,214 @@
+.patient-profil__conteneur { max-width: 640px; margin: 0 auto; }
+
+/* ============================================
+   CARTE IDENTITÉ
+   ============================================ */
+.patient-profil__identite {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.patient-profil__identite-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.patient-profil__identite-infos { flex: 1; min-width: 0; }
+
+.patient-profil__identite-nom {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 6px;
+}
+
+.patient-profil__identite-ligne {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    margin-bottom: 3px;
+    line-height: 1.4;
+}
+
+.patient-profil__identite-ligne svg { flex-shrink: 0; }
+
+/* ============================================
+   CARTE GÉNÉRIQUE
+   ============================================ */
+.patient-profil__carte {
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.patient-profil__carte-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.patient-profil__carte-titre {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--texte);
+}
+
+.patient-profil__bouton-editer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--rayon-md);
+    background-color: transparent;
+    border: none;
+    color: var(--primaire);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+
+.patient-profil__bouton-editer:hover {
+    background-color: var(--primaire-transparent);
+}
+
+/* ============================================
+   MODE LECTURE
+   ============================================ */
+.patient-profil__sous-titre {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--primaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 16px 0 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--bordure);
+}
+
+.patient-profil__sous-titre:first-of-type { margin-top: 0; }
+
+.patient-profil__ligne {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--texte);
+    line-height: 1.4;
+}
+
+.patient-profil__ligne svg {
+    color: var(--texte-secondaire);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.patient-profil__ligne span {
+    flex: 1;
+    word-break: break-word;
+}
+
+.patient-profil__ligne span.valeur-vide {
+    color: var(--texte-desactive);
+    font-style: italic;
+}
+
+.patient-profil__alerte-sante {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    background-color: var(--avertissement-transparent);
+    border: 1px solid var(--avertissement);
+    border-radius: var(--rayon-md);
+    padding: 10px 12px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--texte);
+    line-height: 1.4;
+}
+
+.patient-profil__alerte-sante svg {
+    color: var(--avertissement);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* ============================================
+   MODE ÉDITION
+   ============================================ */
+.patient-profil__grille-groupes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.patient-profil__bouton-groupe {
+    min-width: 54px;
+    padding: 10px 14px;
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    background-color: var(--fond-carte);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texte-secondaire);
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.patient-profil__bouton-groupe:hover { border-color: var(--bordure-forte); }
+.patient-profil__bouton-groupe--actif { border-color: var(--primaire); background-color: var(--primaire-transparent); color: var(--primaire); }
+
+.patient-profil__actions-edition {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--bordure);
+}
+
+/* ============================================
+   BOUTON DÉCONNEXION
+   ============================================ */
+.patient-profil__bouton-deconnexion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--rayon-md);
+    border: 1px solid var(--urgence);
+    background-color: var(--urgence-transparent);
+    color: var(--urgence);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+
+.patient-profil__bouton-deconnexion:hover {
+    background-color: rgba(192, 57, 43, 0.18);
+}

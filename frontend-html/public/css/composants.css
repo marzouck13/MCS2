@@ -1,0 +1,321 @@
+.bouton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--rayon-md);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 20px;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, opacity 150ms ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.bouton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.bouton:hover {
+    text-decoration: none;
+}
+
+.bouton--primaire {
+    background-color: var(--primaire);
+    color: var(--texte-clair);
+}
+
+.bouton--primaire:hover:not(:disabled) {
+    background-color: var(--primaire-fonce);
+}
+
+.bouton--secondaire {
+    background-color: transparent;
+    color: var(--primaire);
+    border: 2px solid var(--primaire);
+}
+
+.bouton--secondaire:hover:not(:disabled) {
+    background-color: var(--primaire-transparent);
+}
+
+.bouton--danger {
+    background-color: var(--urgence);
+    color: var(--texte-clair);
+}
+
+.bouton--danger:hover:not(:disabled) {
+    background-color: #A93226;
+}
+
+.bouton--neutre {
+    background-color: var(--fond-sombre);
+    color: var(--texte);
+    border: 2px solid var(--bordure);
+}
+
+.bouton--neutre:hover:not(:disabled) {
+    background-color: var(--fond-desactive);
+}
+
+.bouton--grand {
+    padding: 14px 24px;
+    font-size: 16px;
+}
+
+.bouton--petit {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.bouton--pleine-largeur {
+    width: 100%;
+}
+
+.champ {
+    margin-bottom: 16px;
+}
+
+.champ__label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texte);
+    margin-bottom: 6px;
+}
+
+.champ__obligatoire {
+    color: var(--urgence);
+    margin-left: 4px;
+}
+
+.champ__conteneur-icone {
+    position: relative;
+    width: 100%;
+}
+
+.champ__input {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--texte);
+    background-color: var(--fond-carte);
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    padding: 13px 14px;
+    min-height: 50px;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+    outline: none;
+}
+
+.champ__input--avec-icone-droite {
+    padding-right: 44px;
+}
+
+.champ__input::placeholder {
+    color: var(--texte-placeholder);
+    opacity: 1;
+}
+
+.champ__input:hover:not(:disabled):not(:focus) {
+    border-color: var(--bordure-forte);
+}
+
+.champ__input:focus {
+    border-color: var(--primaire);
+    box-shadow: 0 0 0 3px var(--primaire-transparent);
+}
+
+.champ__input:disabled {
+    background-color: var(--fond-sombre);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.champ__input--erreur {
+    border-color: var(--erreur);
+}
+
+.champ__input--erreur:focus {
+    border-color: var(--erreur);
+    box-shadow: 0 0 0 3px var(--erreur-transparent);
+}
+
+.champ__icone-droite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--texte-secondaire);
+    cursor: pointer;
+    transition: color 150ms ease;
+}
+
+.champ__icone-droite:hover {
+    color: var(--primaire);
+}
+
+.champ__icone-droite:focus-visible {
+    outline: 2px solid var(--primaire);
+    border-radius: var(--rayon-md);
+}
+
+.champ__aide {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+    margin-top: 6px;
+}
+
+.champ__erreur {
+    font-size: 12px;
+    color: var(--erreur);
+    margin-top: 6px;
+}
+
+.champ__select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3e%3cpath fill='%237F8C8D' d='M6 8L0 0h12z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px 8px;
+    cursor: pointer;
+}
+
+.champ__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.champ__checkbox input {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--primaire);
+    cursor: pointer;
+}
+
+.champ__checkbox-texte {
+    font-size: 14px;
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: var(--rayon-md);
+    border: 2px solid transparent;
+    margin-bottom: 16px;
+}
+
+.message--erreur {
+    background-color: var(--erreur-transparent);
+    border-color: var(--erreur);
+}
+
+.message--erreur .message__icone {
+    color: var(--erreur);
+}
+
+.message--succes {
+    background-color: var(--succes-transparent);
+    border-color: var(--succes);
+}
+
+.message--succes .message__icone {
+    color: var(--succes);
+}
+
+.message--avertissement {
+    background-color: var(--avertissement-transparent);
+    border-color: var(--avertissement);
+}
+
+.message__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.message__texte {
+    font-size: 14px;
+    color: var(--texte);
+    flex: 1;
+}
+
+.carte {
+    background-color: var(--fond-carte);
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    box-shadow: var(--ombre-legere);
+    padding: 20px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--rayon-sm);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge--succes {
+    background-color: var(--succes-transparent);
+    color: var(--succes);
+}
+
+.badge--danger {
+    background-color: var(--urgence-transparent);
+    color: var(--urgence);
+}
+
+.badge--avertissement {
+    background-color: var(--avertissement-transparent);
+    color: var(--avertissement);
+}
+
+.badge--info {
+    background-color: var(--info-transparent);
+    color: var(--info);
+}
+
+.badge--neutre {
+    background-color: var(--fond-sombre);
+    color: var(--texte-secondaire);
+}
+
+.badge--primaire {
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+}
+
+.badge__point {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+}

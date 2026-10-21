@@ -1,0 +1,121 @@
+.dossier-entete {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.dossier-entete__haut {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.dossier-entete__retour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    color: var(--texte-secondaire);
+    flex-shrink: 0;
+    transition: color 150ms ease, border-color 150ms ease;
+}
+
+.dossier-entete__retour:hover {
+    color: var(--texte);
+    border-color: var(--bordure-forte);
+}
+
+.dossier-entete__infos {
+    flex: 1;
+    min-width: 0;
+}
+
+.dossier-entete__nom {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--texte);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dossier-entete__details {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    margin-top: 4px;
+}
+
+.dossier-entete__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.dossier-entete__urgence {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: var(--urgence-transparent);
+    border: 1px solid var(--urgence);
+    border-radius: var(--rayon-md);
+    font-size: 13px;
+    color: var(--texte);
+}
+
+.dossier-entete__urgence strong {
+    color: var(--urgence);
+}
+
+.dossier-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.dossier-liste {
+    margin-top: 16px;
+}
+
+.qr-conteneur {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 24px;
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    box-shadow: var(--ombre-legere);
+    margin: 16px auto;
+}
+
+.qr-code-session {
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primaire);
+    margin-top: 16px;
+    letter-spacing: 1px;
+}
+
+.qr-code-label {
+    font-size: 10px;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+@media (min-width: 640px) {
+    .dossier-actions {
+        flex-wrap: nowrap;
+    }
+}

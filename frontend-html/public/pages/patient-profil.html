@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/patient-profil.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Mon profil</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="patient-profil__conteneur">
+                    <div id="chargement" class="message message--avertissement" style="justify-content: center;">
+                        Chargement de votre profil...
+                    </div>
+
+                    <div id="contenu-profil" hidden>
+                        <!-- ============================================ -->
+                        <!-- CARTE IDENTITÉ                                -->
+                        <!-- ============================================ -->
+                        <section class="patient-profil__identite">
+                            <div class="patient-profil__identite-avatar" id="identite-initiale">?</div>
+                            <div class="patient-profil__identite-infos">
+                                <h1 class="patient-profil__identite-nom" id="identite-nom">-</h1>
+                                <p class="patient-profil__identite-ligne">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                    NPI : <span id="identite-npi">-</span>
+                                </p>
+                                <p class="patient-profil__identite-ligne" id="identite-age-sexe">-</p>
+                                <p class="patient-profil__identite-ligne" id="identite-date-naissance">-</p>
+                            </div>
+                        </section>
+
+                        <!-- ============================================ -->
+                        <!-- MODE LECTURE                                  -->
+                        <!-- ============================================ -->
+                        <section class="patient-profil__carte" id="mode-lecture">
+                            <div class="patient-profil__carte-entete">
+                                <h2 class="patient-profil__carte-titre">Mes informations</h2>
+                                <button type="button" id="bouton-modifier" class="patient-profil__bouton-editer">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                    Modifier
+                                </button>
+                            </div>
+
+                            <h3 class="patient-profil__sous-titre">Coordonnées</h3>
+
+                            <div class="patient-profil__ligne">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span id="lecture-email">-</span>
+                            </div>
+                            <div class="patient-profil__ligne">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <span id="lecture-adresse">-</span>
+                            </div>
+
+                            <h3 class="patient-profil__sous-titre">Informations de santé</h3>
+
+                            <div class="patient-profil__ligne">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                                <span id="lecture-groupe">-</span>
+                            </div>
+                            <div class="patient-profil__ligne">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17.01"></line></svg>
+                                <span id="lecture-allergies">-</span>
+                            </div>
+                            <div class="patient-profil__ligne">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <span id="lecture-maladies">-</span>
+                            </div>
+                            <div class="patient-profil__ligne">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <span id="lecture-contact-urgence">-</span>
+                            </div>
+
+                            <div id="alerte-sante" class="patient-profil__alerte-sante" hidden>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                Complétez vos informations de santé pour améliorer votre QR d'urgence.
+                            </div>
+                        </section>
+
+                        <!-- ============================================ -->
+                        <!-- MODE ÉDITION                                  -->
+                        <!-- ============================================ -->
+                        <section class="patient-profil__carte" id="mode-edition" hidden>
+                            <h2 class="patient-profil__carte-titre">Modifier mes informations</h2>
+
+                            <div id="erreur-edition" hidden class="message message--erreur" style="margin-top: 12px;">
+                                <span class="message__icone">!</span>
+                                <p class="message__texte" id="texte-erreur-edition"></p>
+                            </div>
+
+                            <h3 class="patient-profil__sous-titre">Coordonnées</h3>
+
+                            <div class="champ">
+                                <label for="champ-email" class="champ__label">Email</label>
+                                <input type="email" id="champ-email" class="champ__input" placeholder="exemple@email.com">
+                                <p class="champ__erreur" id="erreur-email" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-adresse" class="champ__label">Adresse</label>
+                                <input type="text" id="champ-adresse" class="champ__input" placeholder="Ex : Rue 123, Quartier">
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-ville" class="champ__label">Ville</label>
+                                <input type="text" id="champ-ville" class="champ__input" placeholder="Ex : Cotonou">
+                            </div>
+
+                            <h3 class="patient-profil__sous-titre">Informations de santé</h3>
+
+                            <div class="champ">
+                                <label class="champ__label">Groupe sanguin</label>
+                                <div class="patient-profil__grille-groupes" id="grille-groupes"></div>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-allergies" class="champ__label">Allergies connues</label>
+                                <textarea id="champ-allergies" class="champ__input" rows="2" placeholder="Ex : Pénicilline, arachides"></textarea>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-maladies" class="champ__label">Maladies chroniques</label>
+                                <textarea id="champ-maladies" class="champ__input" rows="2" placeholder="Ex : Hypertension, diabète"></textarea>
+                            </div>
+
+                            <h3 class="patient-profil__sous-titre">Contact d'urgence</h3>
+
+                            <div class="champ">
+                                <label for="champ-contact-nom" class="champ__label">Nom du contact</label>
+                                <input type="text" id="champ-contact-nom" class="champ__input" placeholder="Ex : DOSSOU Thérèse">
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-contact-tel" class="champ__label">Téléphone du contact</label>
+                                <input type="tel" id="champ-contact-tel" class="champ__input" placeholder="Ex : 0197000101" maxlength="13">
+                                <p class="champ__erreur" id="erreur-contact-tel" hidden></p>
+                            </div>
+
+                            <div class="patient-profil__actions-edition">
+                                <button type="button" id="bouton-annuler" class="bouton bouton--neutre" style="flex: 1;">Annuler</button>
+                                <button type="button" id="bouton-enregistrer" class="bouton bouton--primaire" style="flex: 2;">
+                                    Enregistrer les modifications
+                                </button>
+                            </div>
+                        </section>
+
+                        <!-- ============================================ -->
+                        <!-- BOUTON DÉCONNEXION                            -->
+                        <!-- ============================================ -->
+                        <button type="button" id="bouton-deconnexion" class="patient-profil__bouton-deconnexion">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            Se déconnecter
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/layout-patient.js"></script>
+    <script src="/js/pages/patient-profil.js"></script>
+</body>
+</html>

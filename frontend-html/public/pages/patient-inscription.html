@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer mon carnet - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/pages/patient-inscription.css">
+</head>
+<body>
+    <main class="page-inscription-patient">
+        <div class="page-inscription-patient__voile" aria-hidden="true"></div>
+
+        <section class="page-inscription-patient__carte">
+            <header class="page-inscription-patient__entete">
+                <div>
+                    <h1 class="page-inscription-patient__titre">Créer mon carnet de santé</h1>
+                    <p class="page-inscription-patient__sous-titre">Vérifiez votre NPI auprès de l'ANIP, puis complétez vos informations.</p>
+                </div>
+                <a href="/patient/connexion" class="page-inscription-patient__retour">← Retour</a>
+            </header>
+
+            <div class="page-inscription-patient__corps">
+                <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </span>
+                    <p id="texte-erreur" class="message__texte"></p>
+                </div>
+
+                <div id="zone-succes" hidden class="message message--succes" role="status">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </span>
+                    <p id="texte-succes" class="message__texte"></p>
+                </div>
+
+                <div class="bloc-npi-patient">
+                    <h2 class="page-inscription-patient__section-titre">Étape 1 — Vérification du NPI</h2>
+
+                    <div class="champ">
+                        <label for="champ-npi" class="champ__label">Numéro Personnel d'Identification (NPI) <span class="champ__obligatoire">*</span></label>
+                        <input type="text" id="champ-npi" class="champ__input" placeholder="Ex : 7420608664" maxlength="10" inputmode="numeric" required>
+                        <p class="champ__aide">Le NPI est un identifiant à 10 chiffres délivré par l'ANIP.</p>
+                        <p class="champ__erreur" id="erreur-npi" hidden></p>
+                    </div>
+
+                    <div id="actions-npi">
+                        <button type="button" id="bouton-verifier-npi" class="bouton bouton--secondaire bouton--grand bouton--pleine-largeur">
+                            Vérifier mon NPI
+                        </button>
+                    </div>
+
+                    <div id="badge-verifie" hidden class="badge-verifie">
+                        <p class="badge-verifie__titre">✓ NPI vérifié auprès de l'ANIP</p>
+                        <p class="badge-verifie__infos" id="infos-anip"></p>
+                    </div>
+                </div>
+
+                <form id="formulaire-inscription" novalidate hidden>
+                    <h2 class="page-inscription-patient__section-titre">Étape 2 — Vos informations</h2>
+
+                    <div class="page-inscription-patient__grille">
+                        <div>
+                            <h3 class="page-inscription-patient__sous-section">Identité</h3>
+
+                            <div class="champ">
+                                <label for="champ-nom" class="champ__label">Nom <span class="champ__obligatoire">*</span></label>
+                                <input type="text" id="champ-nom" class="champ__input" required>
+                                <p class="champ__erreur" id="erreur-nom" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-prenom" class="champ__label">Prénom <span class="champ__obligatoire">*</span></label>
+                                <input type="text" id="champ-prenom" class="champ__input" required>
+                                <p class="champ__erreur" id="erreur-prenom" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-date-naissance" class="champ__label">Date de naissance <span class="champ__obligatoire">*</span></label>
+                                <input type="date" id="champ-date-naissance" class="champ__input" required>
+                                <p class="champ__erreur" id="erreur-date-naissance" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-lieu-naissance" class="champ__label">Lieu de naissance (optionnel)</label>
+                                <input type="text" id="champ-lieu-naissance" class="champ__input" placeholder="Ex : Cotonou">
+                            </div>
+
+                            <div class="champ">
+                                <label class="champ__label">Sexe <span class="champ__obligatoire">*</span></label>
+                                <div class="boutons-sexe">
+                                    <button type="button" class="bouton-sexe" data-sexe="M">Masculin</button>
+                                    <button type="button" class="bouton-sexe" data-sexe="F">Féminin</button>
+                                </div>
+                                <p class="champ__erreur" id="erreur-sexe" hidden></p>
+                            </div>
+
+                            <h3 class="page-inscription-patient__sous-section">Contact</h3>
+
+                            <div class="champ">
+                                <label for="champ-telephone" class="champ__label">Téléphone <span class="champ__obligatoire">*</span></label>
+                                <input type="tel" id="champ-telephone" class="champ__input" placeholder="Ex : 0197000101" maxlength="13" required>
+                                <p class="champ__aide">Ce numéro recevra les codes de connexion.</p>
+                                <p class="champ__erreur" id="erreur-telephone" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-email" class="champ__label">Email (optionnel)</label>
+                                <input type="email" id="champ-email" class="champ__input" placeholder="exemple@email.com">
+                                <p class="champ__erreur" id="erreur-email" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-adresse" class="champ__label">Adresse (optionnel)</label>
+                                <input type="text" id="champ-adresse" class="champ__input" placeholder="Ex : Rue 123, Quartier">
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-ville" class="champ__label">Ville (optionnel)</label>
+                                <input type="text" id="champ-ville" class="champ__input" placeholder="Ex : Cotonou">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="page-inscription-patient__sous-section">Informations médicales</h3>
+
+                            <div class="champ">
+                                <label class="champ__label">Groupe sanguin</label>
+                                <div class="grille-groupes" id="grille-groupes-sanguins"></div>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-allergies" class="champ__label">Allergies connues (optionnel)</label>
+                                <textarea id="champ-allergies" class="champ__input" rows="2" placeholder="Ex : Pénicilline, arachides"></textarea>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-maladies" class="champ__label">Maladies chroniques (optionnel)</label>
+                                <textarea id="champ-maladies" class="champ__input" rows="2" placeholder="Ex : Hypertension, diabète"></textarea>
+                            </div>
+
+                            <h3 class="page-inscription-patient__sous-section">Contact d'urgence</h3>
+
+                            <div class="champ">
+                                <label for="champ-contact-nom" class="champ__label">Nom du contact (optionnel)</label>
+                                <input type="text" id="champ-contact-nom" class="champ__input" placeholder="Ex : DOSSOU Thérèse">
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-contact-tel" class="champ__label">Téléphone du contact (optionnel)</label>
+                                <input type="tel" id="champ-contact-tel" class="champ__input" placeholder="Ex : 0197000202" maxlength="13">
+                                <p class="champ__erreur" id="erreur-contact-tel" hidden></p>
+                            </div>
+
+                            <div class="page-inscription-patient__actions">
+                                <button type="submit" id="bouton-inscription" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">
+                                    Créer mon carnet
+                                </button>
+                                <p class="page-inscription-patient__lien">
+                                    Déjà inscrit ? <a href="/patient/connexion"><br><br><strong>Se connecter</strong></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/pages/patient-inscription.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+.scanner__conteneur {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.scanner__zone {
+    position: relative;
+    background-color: #000000;
+    border-radius: var(--rayon-md);
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+#reader {
+    width: 100%;
+}
+
+.scanner__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--texte-clair);
+    z-index: 10;
+    text-align: center;
+    padding: 16px;
+}
+
+.scanner__spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top-color: var(--texte-clair);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.scanner__message {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.scanner__erreur {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--erreur);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.scanner__erreur-texte {
+    font-size: 14px;
+    color: var(--texte);
+    margin-bottom: 16px;
+}
+
+.scanner__instructions {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.scanner__badge-instruction {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--primaire-transparent);
+    border-radius: var(--rayon-plein);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primaire);
+}

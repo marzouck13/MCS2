@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Carnet Sante - La sante numerique pour tous</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/pages/accueil.css">
+</head>
+<body class="accueil-body">
+    <nav class="accueil-nav">
+        <a href="/" class="accueil-nav__logo">Mon Carnet Sante</a>
+
+        <div class="accueil-nav__liens">
+            <a href="#solution" class="accueil-nav__lien">Solution</a>
+            <a href="#fonctionnalites" class="accueil-nav__lien">Fonctionnalites</a>
+            <a href="#reglementaire" class="accueil-nav__lien">Cadre legal</a>
+            <a href="#roadmap" class="accueil-nav__lien">Deploiement</a>
+            <a href="#faq" class="accueil-nav__lien">FAQ</a>
+            <a href="#contact" class="accueil-nav__lien">Contact</a>
+        </div>
+
+        <div class="accueil-nav__actions">
+            <a href="/patient/connexion" class="bouton bouton--neutre bouton--petit" style="text-decoration: none;">Espace Patient</a>
+            <a href="/connexion" class="bouton bouton--primaire bouton--petit" style="text-decoration: none;">Espace Pro</a>
+        </div>
+
+        <button type="button" id="accueil-burger" class="accueil-nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="accueil-menu-mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="accueil-menu-overlay" id="accueil-menu-overlay" hidden></div>
+
+    <aside class="accueil-menu-mobile" id="accueil-menu-mobile" aria-hidden="true">
+        <div class="accueil-menu-mobile__entete">
+            <p class="accueil-menu-mobile__titre">Menu</p>
+            <button type="button" id="accueil-menu-fermer" class="accueil-menu-mobile__fermer" aria-label="Fermer le menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="accueil-menu-mobile__nav">
+            <a href="#solution" class="accueil-menu-mobile__lien">La Solution</a>
+            <a href="#fonctionnalites" class="accueil-menu-mobile__lien">Fonctionnalites</a>
+            <a href="#reglementaire" class="accueil-menu-mobile__lien">Cadre legal</a>
+            <a href="#roadmap" class="accueil-menu-mobile__lien">Deploiement</a>
+            <a href="#faq" class="accueil-menu-mobile__lien">FAQ</a>
+            <a href="#contact" class="accueil-menu-mobile__lien">Contact</a>
+        </nav>
+
+        <div class="accueil-menu-mobile__actions">
+            <a href="/patient/connexion" class="bouton bouton--neutre bouton--pleine-largeur" style="text-decoration: none;">Espace Patient</a>
+            <a href="/connexion" class="bouton bouton--primaire bouton--pleine-largeur" style="text-decoration: none;">Espace Pro</a>
+        </div>
+    </aside>
+
+    <!-- SECTION 1 : Hero -->
+    <header class="accueil-hero">
+        <div class="reveal visible">
+            <h1 class="accueil-titre-section">Votre carnet de sante,<br>desormais numerique et unifie.</h1>
+            <p class="accueil-texte-section">
+                Mon Carnet Sante revolutionne l'acces aux soins au Benin en centralisant le dossier medical de chaque citoyen via son Numero Personnel d'Identification (NPI). Un dossier securise, accessible en un instant par les professionnels de sante autorises.
+            </p>
+            <div class="accueil-hero__actions">
+                <a href="/patient/connexion" class="bouton bouton--secondaire bouton--grand" style="background-color: #fff; color: var(--primaire); border: none; text-decoration: none;">Je suis patient</a>
+                <a href="/connexion" class="bouton bouton--grand" style="border: 2px solid #fff; color: #fff; text-decoration: none;">Je suis professionnel de sante</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2 : Le Probleme -->
+    <section id="probleme" class="accueil-section">
+        <div class="accueil-section__conteneur">
+            <div class="accueil-texte reveal">
+                <h2 class="accueil-titre-section">Le constat actuel</h2>
+                <p class="accueil-texte-section">
+                    Aujourd'hui, le parcours de soins est fragmente. Les dossiers medicaux sont souvent sur papier, perdus ou disperses entre plusieurs etablissements.
+                </p>
+                <p class="accueil-texte-section">
+                    Un patient arrivant aux urgences ne peut souvent pas fournir son historique, ses allergies ou ses traitements en cours. Les medecins perdent un temps precieux, et les risques d'erreurs medicales augmentent.
+                </p>
+                <p class="accueil-texte-section">
+                    De plus, la duplication d'examens (analyses, radiologies) genere des couts inutiles pour les patients et pour le systeme de sante national.
+                </p>
+            </div>
+            <div class="accueil-image reveal">
+                <div class="accueil-image-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <span>Emplacement image 1</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 : La Solution -->
+    <section id="solution" class="accueil-section accueil-section--gris">
+        <div class="accueil-section__conteneur accueil-section__conteneur--inverse">
+            <div class="accueil-image reveal">
+                <div class="accueil-image-placeholder">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    <span>Emplacement image 2</span>
+                </div>
+            </div>
+            <div class="accueil-texte reveal reveal-delai-1">
+                <h2 class="accueil-titre-section">La solution Mon Carnet Sante</h2>
+                <p class="accueil-texte-section">
+                    MCS est une plateforme nationale qui lie le NPI du citoyen a un dossier medical numerique securise.
+                </p>
+                <p class="accueil-texte-section">
+                    Ou que vous soyez, quel que soit l'hopital ou la clinique, votre historique medical vous suit. Un medecin peut consulter instantanement vos antecedents (avec votre accord) pour vous prescrire le traitement le plus adapte.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 : Fonctionnalites -->
+    <section id="fonctionnalites" class="accueil-section">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 class="accueil-titre-section">Une plateforme aux multiples atouts</h2>
+                <p class="accueil-texte-section">
+                    Pensee pour les professionnels de sante et les citoyens, la plateforme s'articule autour de modules specialises pour repondre a tous les besoins.
+                </p>
+            </div>
+
+            <div class="accueil-grille">
+                <div class="accueil-carte reveal reveal-delai-1">
+                    <div class="accueil-carte__icone">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path><circle cx="20" cy="10" r="2"></circle></svg>
+                    </div>
+                    <h3 class="accueil-carte__titre">Consultation classique</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">Le medecin consulte votre historique, saisit ses notes, son diagnostic et vous prescrit un traitement. Tout est centralise.</p>
+                </div>
+
+                <div class="accueil-carte reveal reveal-delai-2">
+                    <div class="accueil-carte__icone" style="background-color: var(--urgence-transparent); color: var(--urgence);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17.01"></line></svg>
+                    </div>
+                    <h3 class="accueil-carte__titre">Mode Urgence</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">En situation critique, le personnel soignant accede aux donnees vitales (groupe sanguin, allergies) sans delai prealable.</p>
+                </div>
+
+                <div class="accueil-carte reveal reveal-delai-3">
+                    <div class="accueil-carte__icone" style="background-color: var(--succes-transparent); color: var(--succes);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    </div>
+                    <h3 class="accueil-carte__titre">Portail Pharmacie</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">Fini les ordonnances illisibles. Le pharmacien scanne un QR code, verifie la prescription et delivre le medicament en toute securite.</p>
+                </div>
+
+                <div class="accueil-carte reveal reveal-delai-4">
+                    <div class="accueil-carte__icone" style="background-color: var(--info-transparent); color: var(--info);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14v-4z"></path><rect x="3" y="6" width="12" height="12" rx="2"></rect></svg>
+                    </div>
+                    <h3 class="accueil-carte__titre">Teleconsultation</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">Consultez un medecin a distance. Une salle video securisee est generee instantanement via un lien partageable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 : Impact / Chiffres -->
+    <section class="accueil-section accueil-section--gris">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Un impact direct sur la population</h2>
+                <p class="accueil-texte-section">Mon Carnet Sante n'est pas qu'un outil technique, c'est une avancee sociale majeure.</p>
+            </div>
+
+            <div class="accueil-impact">
+                <div class="reveal reveal-delai-1">
+                    <p class="accueil-impact__chiffre">10</p>
+                    <p class="accueil-impact__label">Chiffres du NPI, identifiant unique national</p>
+                </div>
+                <div class="reveal reveal-delai-2">
+                    <p class="accueil-impact__chiffre">6</p>
+                    <p class="accueil-impact__label">Modules fonctionnels integres a la plateforme</p>
+                </div>
+                <div class="reveal reveal-delai-3">
+                    <p class="accueil-impact__chiffre">24/7</p>
+                    <p class="accueil-impact__label">Acces aux donnees vitales en cas d'urgence</p>
+                </div>
+            </div>
+
+            <div class="reveal" style="margin-top: 32px; text-align: center;">
+                <div class="accueil-image-placeholder" style="max-width: 800px; margin: 0 auto; aspect-ratio: 21/9;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <span>Emplacement image large (impact communaute)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 : Securite -->
+    <section id="securite" class="accueil-section">
+        <div class="accueil-section__conteneur">
+            <div class="accueil-texte reveal">
+                <h2 class="accueil-titre-section">La protection de vos donnees est notre priorite</h2>
+                <p class="accueil-texte-section">
+                    La confidentialite medicale est un droit fondamental. Mon Carnet Sante applique des regles strictes pour garantir que seul le personnel autorise accede a votre dossier.
+                </p>
+                <ul style="list-style: none; padding: 0; margin-top: 24px;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        <span style="font-size: 15px; color: var(--texte);"><strong>Consentement prealable :</strong> Le medecin doit obtenir votre accord (via QR code) pour ouvrir votre dossier standard.</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        <span style="font-size: 15px; color: var(--texte);"><strong>Chiffrement :</strong> Les donnees sensibles sont chiffrees en AES-256-GCM. Les communications sont protegees par TLS.</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        <span style="font-size: 15px; color: var(--texte);"><strong>Notification SMS :</strong> Chaque consultation de votre dossier vous est notifiee en temps reel sur votre telephone.</span>
+                    </li>
+                    <li style="display: flex; gap: 12px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        <span style="font-size: 15px; color: var(--texte);"><strong>Journal d'acces :</strong> Retrouvez l'historique complet des medecins ayant consulte vos donnees.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="accueil-image reveal reveal-delai-1">
+                <div class="accueil-image-placeholder" style="background-color: var(--primaire-transparent); border-color: var(--primaire);">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--primaire)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span style="color: var(--primaire);">Emplacement image securite</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 : Comment ca marche -->
+    <section id="comment-ca-marche" class="accueil-section accueil-section--gris">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Comment ca marche ?</h2>
+                <p class="accueil-texte-section">En 3 etapes simples, securisez et partagez votre dossier medical.</p>
+            </div>
+            <div class="accueil-etapes">
+                <div class="accueil-etape reveal reveal-delai-1">
+                    <div class="accueil-etape__numero">1</div>
+                    <h3 class="accueil-etape__titre">Inscription</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">Presentez-vous dans un centre agree ou utilisez l'application mobile avec votre NPI pour creer votre dossier numerique.</p>
+                </div>
+                <div class="accueil-etape reveal reveal-delai-2">
+                    <div class="accueil-etape__numero">2</div>
+                    <h3 class="accueil-etape__titre">Consentement</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">Lors d'une consultation, generez un QR code temporaire que le medecin scannera pour acceder a vos donnees.</p>
+                </div>
+                <div class="accueil-etape reveal reveal-delai-3">
+                    <div class="accueil-etape__numero">3</div>
+                    <h3 class="accueil-etape__titre">Suivi</h3>
+                    <p class="accueil-texte-section" style="font-size: 14px;">Recevez vos ordonnances numeriques, suivez vos resultats d'examens et gardez le controle sur qui accede a votre dossier.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 : Pour qui -->
+    <section class="accueil-section">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Un ecosysteme pour tous</h2>
+                <p class="accueil-texte-section">Une interface adaptee a chaque acteur du systeme de sante.</p>
+            </div>
+            <div class="accueil-cibles">
+                <div class="accueil-cible reveal reveal-delai-1">
+                    <div class="accueil-cible__entete">
+                        <h3>Espace Patient</h3>
+                        <p style="opacity: 0.9;">Pour les citoyens</p>
+                    </div>
+                    <div class="accueil-cible__corps">
+                        <ul>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Acces a votre historique complet</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Gestion des consentements</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> QR Code pour proches (tuteurs)</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Mode urgence permanent</li>
+                        </ul>
+                        <a href="/patient/inscription" class="bouton bouton--primaire bouton--pleine-largeur" style="text-decoration: none;">Creer mon carnet</a>
+                    </div>
+                </div>
+                <div class="accueil-cible reveal reveal-delai-2">
+                    <div class="accueil-cible__entete accueil-cible__entete--secondaire">
+                        <h3>Espace Professionnel</h3>
+                        <p style="opacity: 0.9;">Medecins, Infirmiers, Pharmaciens</p>
+                    </div>
+                    <div class="accueil-cible__corps">
+                        <ul>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Consultation du dossier patient</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Creation de consultations et ordonnances</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Delivrance d'ordonnances (Pharmacie)</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--succes)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Teleconsultation video integree</li>
+                        </ul>
+                        <a href="/inscription" class="bouton bouton--secondaire bouton--pleine-largeur" style="text-decoration: none;">Creer un compte pro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOUVELLE SECTION 9 : Cadre reglementaire -->
+    <section id="reglementaire" class="accueil-section accueil-section--gris">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Un projet encadre par la loi</h2>
+                <p class="accueil-texte-section">
+                    Mon Carnet Sante respecte scrupuleusement le cadre juridique beninois et les normes internationales en matiere de protection des donnees de sante.
+                </p>
+            </div>
+
+            <div class="accueil-reglementaire__grille">
+                <div class="accueil-reglementaire__carte reveal reveal-delai-1">
+                    <div class="accueil-reglementaire__titre">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        Code du Numerique du Benin
+                    </div>
+                    <p class="accueil-reglementaire__texte">
+                        Conformement au Code du Numerique de la Republique du Benin, le traitement des donnees personnelles de sante est strictement encadre. Aucun acces non autorise n'est tolere.
+                    </p>
+                </div>
+
+                <div class="accueil-reglementaire__carte reveal reveal-delai-2">
+                    <div class="accueil-reglementaire__titre">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        APDP - Autorite de Protection des Donnees
+                    </div>
+                    <p class="accueil-reglementaire__texte">
+                        Le traitement des donnees est declare aupres de l'Autorite de Protection des Donnees Personnelles (APDP) du Benin. Les utilisateurs disposent d'un droit d'acces, de rectification et d'opposition.
+                    </p>
+                </div>
+
+                <div class="accueil-reglementaire__carte reveal reveal-delai-3">
+                    <div class="accueil-reglementaire__titre">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        Secret medical
+                    </div>
+                    <p class="accueil-reglementaire__texte">
+                        Le secret medical est garanti par le Code de deontologie. Tout professionnel de sante est tenu au secret professionnel. Toute violation est passible de poursuites judiciaires.
+                    </p>
+                </div>
+
+                <div class="accueil-reglementaire__carte reveal reveal-delai-4">
+                    <div class="accueil-reglementaire__titre">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                        Droits des patients
+                    </div>
+                    <p class="accueil-reglementaire__texte">
+                        Chaque patient peut a tout moment consulter, rectifier, supprimer ses donnees ou revoquer un consentement. Un delegue a la protection des donnees (DPO) est disponible pour toute question.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOUVELLE SECTION 10 : Feuille de route -->
+    <section id="roadmap" class="accueil-section">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Le deploiement de la plateforme</h2>
+                <p class="accueil-texte-section">
+                    Mon Carnet Sante est en cours de deploiement progressif sur le territoire national. Retrouvez les grandes etapes du projet.
+                </p>
+            </div>
+
+            <div class="accueil-roadmap">
+                <div class="accueil-roadmap__etape reveal reveal-delai-1">
+                    <span class="accueil-roadmap__badge accueil-roadmap__badge--actif">Phase pilote</span>
+                    <h3 class="accueil-roadmap__titre">Prototype operationnel</h3>
+                    <p class="accueil-roadmap__texte">
+                        La plateforme technique est operationnelle. Les modules essentiels (authentification, dossier patient, ordonnance, QR code) sont livrés et testes.
+                    </p>
+                </div>
+
+                <div class="accueil-roadmap__etape reveal reveal-delai-2">
+                    <span class="accueil-roadmap__badge accueil-roadmap__badge--planifie">Prochaine etape</span>
+                    <h3 class="accueil-roadmap__titre">Deploiement pilote</h3>
+                    <p class="accueil-roadmap__texte">
+                        Deploiement dans les etablissements partenaires pilotes (hopitaux et pharmacies selectionnes), avec formation des professionnels de sante.
+                    </p>
+                </div>
+
+                <div class="accueil-roadmap__etape reveal reveal-delai-3">
+                    <span class="accueil-roadmap__badge accueil-roadmap__badge--avenir">Vision long terme</span>
+                    <h3 class="accueil-roadmap__titre">Couverture nationale</h3>
+                    <p class="accueil-roadmap__texte">
+                        Extension progressive a tous les etablissements de sante du Benin, avec interconnexion aux systemes de l'ANIP et du ministere de la sante.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11 : Vision -->
+    <section class="accueil-section accueil-vision">
+        <div class="accueil-section__conteneur">
+            <div class="accueil-texte reveal">
+                <h2 class="accueil-titre-section">Notre vision pour la sante au Benin</h2>
+                <p class="accueil-texte-section">
+                    Mon Carnet Sante n'est pas qu'un simple outil informatique. C'est un engagement pour une sante plus equitable, plus accessible et plus humaine pour tous les citoyens beninois.
+                </p>
+                <blockquote class="accueil-vision__citation">
+                    "Nous croyons que chaque citoyen a le droit de disposer de son historique medical, ou qu'il se trouve, et que chaque professionnel de sante doit pouvoir prodiguer les meilleurs soins sans etre freine par l'absence d'information."
+                </blockquote>
+                <p class="accueil-texte-section">
+                    En alignant notre projet avec l'Objectif de Developpement Durable n°3 des Nations Unies (Bonne sante et bien-etre), nous oeuvrons pour un systeme de soins plus moderne, plus connecte, et surtout plus protecteur.
+                </p>
+            </div>
+            <div class="accueil-image reveal reveal-delai-1">
+                <div class="accueil-image-placeholder" style="background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: #fff;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                    <span style="color: rgba(255,255,255,0.6);">Emplacement image vision</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12 : FAQ enrichie -->
+    <section id="faq" class="accueil-section accueil-section--gris">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Questions frequentes</h2>
+                <p class="accueil-texte-section">Vous avez des doutes ? Nous avons les reponses.</p>
+            </div>
+            <div class="accueil-faq reveal reveal-delai-1">
+                <details class="accueil-faq__item">
+                    <summary>
+                        Que se passe-t-il si je perds mon telephone ?
+                        <span class="accueil-faq__icone">+</span>
+                    </summary>
+                    <div class="accueil-faq__contenu">
+                        Vos donnees sont stockees sur nos serveurs securises, pas sur votre telephone. Vous pouvez vous connecter depuis n'importe quel autre appareil avec votre NPI et votre numero de telephone pour recevoir un code OTP.
+                    </div>
+                </details>
+                <details class="accueil-faq__item">
+                    <summary>
+                        Un medecin peut-il consulter mon dossier sans mon accord ?
+                        <span class="accueil-faq__icone">+</span>
+                    </summary>
+                    <div class="accueil-faq__contenu">
+                        Non. En dehors du mode "Urgence Vitale" (strictement trace et notifie), un medecin doit obtenir votre consentement via le scan d'un QR code temporaire que vous generez.
+                    </div>
+                </details>
+                <details class="accueil-faq__item">
+                    <summary>
+                        Mes donnees de sante sont-elles vendues a des assurances ?
+                        <span class="accueil-faq__icone">+</span>
+                    </summary>
+                    <div class="accueil-faq__contenu">
+                        Absolument pas. Mon Carnet Sante est un service public. Aucune donnee medicale n'est partagee avec des tiers commerciaux ou des assurances sans une loi l'autorisant explicitement.
+                    </div>
+                </details>
+                <details class="accueil-faq__item">
+                    <summary>
+                        Comment obtenir mon NPI si je ne l'ai pas ?
+                        <span class="accueil-faq__icone">+</span>
+                    </summary>
+                    <div class="accueil-faq__contenu">
+                        Le NPI est delivre par l'ANIP (Agence Nationale d'Identification et du Domaine). Si vous possedez deja une carte d'identite, votre NPI y figure. Sinon, vous pouvez entamer les demarches aupres de l'ANIP.
+                    </div>
+                </details>
+                <details class="accueil-faq__item">
+                    <summary>
+                        Puis-je supprimer mon compte et mes donnees ?
+                        <span class="accueil-faq__icone">+</span>
+                    </summary>
+                    <div class="accueil-faq__contenu">
+                        Oui. Conformement a la loi sur la protection des donnees personnelles, vous disposez d'un droit a l'effacement. Toute demande peut etre adressee au Delegue a la Protection des Donnees (DPO) via l'adresse dpo@moncarnetsante.bj. Une verification d'identite sera demandee pour garantir la securite.
+                    </div>
+                </details>
+                <details class="accueil-faq__item">
+                    <summary>
+                        Que se passe-t-il en cas d'acces non autorise ?
+                        <span class="accueil-faq__icone">+</span>
+                    </summary>
+                    <div class="accueil-faq__contenu">
+                        Toute tentative d'acces non autorise est tracee et notifiee immediatement au patient par SMS. En cas d'incident, une procedure de signalement est activee aupres de l'APDP, conformement au Code du Numerique. Des sanctions disciplinaires et penales peuvent etre appliquees.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOUVELLE SECTION 13 : Ressources -->
+    <section class="accueil-section">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Ressources et documentation</h2>
+                <p class="accueil-texte-section">
+                    Retrouvez les documents officiels et guides pratiques de la plateforme.
+                </p>
+            </div>
+
+            <div class="accueil-ressources">
+                <a href="#" class="accueil-ressource reveal reveal-delai-1">
+                    <div class="accueil-ressource__icone">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    </div>
+                    <div>
+                        <p class="accueil-ressource__titre">Guide utilisateur patient</p>
+                        <p class="accueil-ressource__texte">Comment creer et utiliser votre carnet de sante numerique.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="accueil-ressource reveal reveal-delai-2">
+                    <div class="accueil-ressource__icone">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="accueil-ressource__titre">Politique de confidentialite</p>
+                        <p class="accueil-ressource__texte">Les engagements de la plateforme en matiere de protection des donnees.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="accueil-ressource reveal reveal-delai-3">
+                    <div class="accueil-ressource__icone">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+                    </div>
+                    <div>
+                        <p class="accueil-ressource__titre">Conditions generales d'utilisation</p>
+                        <p class="accueil-ressource__texte">Les regles d'usage du service et les droits des utilisateurs.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="accueil-ressource reveal reveal-delai-4">
+                    <div class="accueil-ressource__icone">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </div>
+                    <div>
+                        <p class="accueil-ressource__titre">Foire aux questions technique</p>
+                        <p class="accueil-ressource__texte">Documentation technique pour les professionnels de sante.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 14 : Contact -->
+    <section id="contact" class="accueil-section accueil-section--gris">
+        <div class="accueil-section__conteneur" style="grid-template-columns: 1fr;">
+            <div class="reveal" style="text-align: center;">
+                <h2 class="accueil-titre-section">Besoin d'aide ou d'informations ?</h2>
+                <p class="accueil-texte-section">Notre equipe est a votre ecoute pour toute question concernant la plateforme.</p>
+            </div>
+
+            <div class="accueil-contact">
+                <div class="accueil-contact__info reveal reveal-delai-1">
+                    <div class="accueil-contact__item">
+                        <div class="accueil-contact__icone">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div>
+                            <p class="accueil-contact__label">Email general</p>
+                            <p class="accueil-contact__valeur">contact@moncarnetsante.bj</p>
+                        </div>
+                    </div>
+                    <div class="accueil-contact__item">
+                        <div class="accueil-contact__icone">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="accueil-contact__label">Delegue a la protection des donnees</p>
+                            <p class="accueil-contact__valeur">dpo@moncarnetsante.bj</p>
+                        </div>
+                    </div>
+                    <div class="accueil-contact__item">
+                        <div class="accueil-contact__icone">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="accueil-contact__label">Telephone</p>
+                            <p class="accueil-contact__valeur">+229 01 00 00 00 00</p>
+                        </div>
+                    </div>
+                    <div class="accueil-contact__item">
+                        <div class="accueil-contact__icone">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <p class="accueil-contact__label">Adresse</p>
+                            <p class="accueil-contact__valeur">Cotonou, Benin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accueil-formulaire reveal reveal-delai-2">
+                    <form id="formulaire-contact">
+                        <div class="accueil-formulaire__groupe">
+                            <label class="accueil-formulaire__label" for="contact-nom">Nom complet</label>
+                            <input type="text" id="contact-nom" class="accueil-formulaire__input" required>
+                        </div>
+                        <div class="accueil-formulaire__groupe">
+                            <label class="accueil-formulaire__label" for="contact-email">Email</label>
+                            <input type="email" id="contact-email" class="accueil-formulaire__input" required>
+                        </div>
+                        <div class="accueil-formulaire__groupe">
+                            <label class="accueil-formulaire__label" for="contact-sujet">Sujet</label>
+                            <input type="text" id="contact-sujet" class="accueil-formulaire__input" required>
+                        </div>
+                        <div class="accueil-formulaire__groupe">
+                            <label class="accueil-formulaire__label" for="contact-message">Message</label>
+                            <textarea id="contact-message" class="accueil-formulaire__textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 15 : CTA Final -->
+    <section class="accueil-cta">
+        <div class="reveal">
+            <h2 class="accueil-cta__titre">Pret a prendre le controle de votre sante ?</h2>
+            <p class="accueil-cta__texte">Rejoignez des milliers de citoyens et de professionnels de sante qui utilisent deja Mon Carnet Sante.</p>
+            <div class="accueil-hero__actions" style="justify-content: center;">
+                <a href="/patient/connexion" class="bouton bouton--grand" style="background-color: #fff; color: var(--primaire-fonce); border: none; text-decoration: none; font-weight: 800;">Espace Patient</a>
+                <a href="/connexion" class="bouton bouton--grand" style="border: 2px solid #fff; color: #fff; text-decoration: none;">Espace Professionnel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOUVEAU FOOTER ENRICHI -->
+    <footer class="accueil-footer">
+        <div class="accueil-footer__conteneur">
+            <div class="accueil-footer__colonne">
+                <p class="accueil-footer__titre">Mon Carnet Sante</p>
+                <p class="accueil-footer__texte">
+                    La plateforme nationale de gestion du dossier medical numerique via le NPI. Un projet pour moderniser le systeme de soins beninois.
+                </p>
+            </div>
+
+            <div class="accueil-footer__colonne">
+                <h4>La plateforme</h4>
+                <ul>
+                    <li><a href="#solution">La solution</a></li>
+                    <li><a href="#fonctionnalites">Fonctionnalites</a></li>
+                    <li><a href="#securite">Securite</a></li>
+                    <li><a href="#roadmap">Deploiement</a></li>
+                </ul>
+            </div>
+
+            <div class="accueil-footer__colonne">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Guides utilisateur</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="accueil-footer__colonne">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Mentions legales</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="#">Politique de confidentialite</a></li>
+                    <li><a href="#">Protection des donnees (APDP)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="accueil-footer__bas">
+            <p>&copy; 2026 Mon Carnet Sante. Tous droits reserves.</p>
+            <p>Un projet pour la Republique du Benin - Aligne sur les Objectifs de Developpement Durable (ODD 3)</p>
+        </div>
+    </footer>
+
+    <script src="/js/pages/accueil.js"></script>
+</body>
+</html>

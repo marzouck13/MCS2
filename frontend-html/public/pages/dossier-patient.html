@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier patient - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/modale.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/composants-metier.css">
+    <link rel="stylesheet" href="/css/pages/dossier-patient.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Dossier patient</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div id="chargement" class="message message--avertissement" style="justify-content: center;">Chargement du dossier...</div>
+                
+                <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </span>
+                    <p id="texte-erreur" class="message__texte"></p>
+                </div>
+
+                <div id="contenu-dossier" hidden>
+                    <div class="dossier-entete">
+                        <div class="dossier-entete__haut">
+                            <a href="/recherche-patient" class="dossier-entete__retour" aria-label="Retour">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </a>
+                            <div class="dossier-entete__infos">
+                                <h1 class="dossier-entete__nom" id="patient-nom">-</h1>
+                                <p class="dossier-entete__details" id="patient-details">-</p>
+                            </div>
+                            <span id="badge-consentement"></span>
+                        </div>
+
+                        <div class="dossier-entete__badges" id="patient-badges"></div>
+                        <div id="patient-urgence" hidden></div>
+                    </div>
+
+                    <div class="dossier-actions" id="actions-dossier"></div>
+
+                    <div class="onglets" id="onglets-dossier">
+                        <button class="onglet onglet--actif" data-cible="consultations">
+                            Consultations <span class="onglet__compteur" id="compteur-consultations">0</span>
+                        </button>
+                        <button class="onglet" data-cible="ordonnances">
+                            Ordonnances <span class="onglet__compteur" id="compteur-ordonnances">0</span>
+                        </button>
+                        <button class="onglet" data-cible="resultats">
+                            Resultats <span class="onglet__compteur" id="compteur-resultats">0</span>
+                        </button>
+                    </div>
+
+                    <div class="dossier-liste" id="liste-consultations"></div>
+                    <div class="dossier-liste" id="liste-ordonnances" hidden></div>
+                    <div class="dossier-liste" id="liste-resultats" hidden></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modale-overlay" id="modale-resultat" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Ajouter un resultat d'examen</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-resultat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps">
+                <form id="formulaire-resultat">
+                    <div class="champ">
+                        <label class="champ__label">Type d'examen <span class="champ__obligatoire">*</span></label>
+                        <input type="text" id="resultat-type" class="champ__input" placeholder="Ex : NFS, Glycemie" required>
+                    </div>
+                    <div class="champ">
+                        <label class="champ__label">Laboratoire</label>
+                        <input type="text" id="resultat-labo" class="champ__input" placeholder="Ex : Labo Central">
+                    </div>
+                    <div class="champ">
+                        <label class="champ__label">Resultat</label>
+                        <textarea id="resultat-texte" class="champ__input" rows="3" placeholder="Valeurs mesurees..."></textarea>
+                    </div>
+                    <div class="champ">
+                        <label class="champ__label">Conclusion</label>
+                        <textarea id="resultat-conclusion" class="champ__input" rows="2" placeholder="Interpretation medicale..."></textarea>
+                    </div>
+                    <div class="modale__actions">
+                        <button type="button" class="bouton bouton--neutre" id="annuler-resultat">Annuler</button>
+                        <button type="submit" class="bouton bouton--primaire" id="soumettre-resultat">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modale-overlay" id="modale-teleconsultation" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Session de teleconsultation</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-teleconsultation">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps" style="text-align: center;">
+                <p style="font-size: 13px; color: var(--texte-secondaire); margin-bottom: 16px;">
+                    Demandez au patient de scanner ce QR code ou partagez-le lui directement.
+                </p>
+                <div class="qr-conteneur" id="qr-teleconsultation-conteneur">
+                    <div id="qrcode-teleconsultation"></div>
+                    <p class="qr-code-session" id="code-session">-</p>
+                    <p class="qr-code-label">Mon Carnet Sante - Teleconsultation</p>
+                </div>
+                <div class="modale__actions" style="justify-content: center; border-top: none; padding-top: 0; gap: 8px;">
+                    <button type="button" class="bouton bouton--neutre" id="fermer-teleconsultation">Fermer</button>
+                    <button type="button" class="bouton bouton--primaire" id="bouton-partager">Partager le QR code</button>
+                    <a href="#" id="lien-visio" class="bouton bouton--primaire" target="_blank">Rejoindre</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/partage-visio.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/composants-metier.js"></script>
+    <script src="/js/pages/dossier-patient.js"></script>
+</body>
+</html>

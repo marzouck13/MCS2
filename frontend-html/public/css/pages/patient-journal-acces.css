@@ -1,0 +1,66 @@
+.patient-journal__conteneur { max-width: 760px; margin: 0 auto; }
+.patient-journal__entete { margin-bottom: 24px; }
+.patient-journal__titre { font-size: 22px; font-weight: 800; color: var(--texte); margin-bottom: 4px; }
+.patient-journal__sous-titre { font-size: 14px; color: var(--texte-secondaire); }
+
+/* Stats repartition */
+.patient-journal__stats {
+    display: flex;
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.patient-journal__stat { flex: 1; text-align: center; }
+.patient-journal__stat-valeur { font-size: 22px; font-weight: 800; }
+.patient-journal__stat-label { font-size: 11px; font-weight: 600; color: var(--texte-secondaire); margin-top: 2px; }
+
+/* Filtres */
+.patient-journal__filtres { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
+.patient-journal__filtre {
+    padding: 8px 16px;
+    border-radius: var(--rayon-md);
+    border: 1px solid var(--bordure);
+    background-color: var(--fond-carte);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texte-secondaire);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 150ms ease;
+}
+.patient-journal__filtre--actif { background-color: var(--primaire); color: var(--texte-clair); border-color: var(--primaire); }
+
+/* Entrée journal */
+.patient-journal__entree {
+    display: flex;
+    gap: 12px;
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 14px;
+    margin-bottom: 10px;
+}
+.patient-journal__entree-icone {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--rayon-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.patient-journal__entree-contenu { flex: 1; }
+.patient-journal__entree-entete { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.patient-journal__entree-nom { font-size: 14px; font-weight: 700; color: var(--texte); }
+.patient-journal__entree-badge { padding: 3px 8px; border-radius: var(--rayon-sm); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; flex-shrink: 0; }
+.patient-journal__entree-meta { font-size: 12px; color: var(--texte-secondaire); margin-bottom: 4px; }
+.patient-journal__entree-motif { font-size: 13px; color: var(--texte); margin-bottom: 6px; line-height: 1.4; }
+.patient-journal__entree-date { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--texte-secondaire); }
+
+/* Etat vide */
+.patient-journal__vide { text-align: center; padding: 48px 24px; }
+.patient-journal__vide-icone { width: 80px; height: 80px; border-radius: 50%; background-color: var(--fond-sombre); color: var(--texte-desactive); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.patient-journal__vide-titre { font-size: 16px; font-weight: 700; color: var(--texte); margin-bottom: 8px; }
+.patient-journal__vide-texte { font-size: 13px; color: var(--texte-secondaire); line-height: 1.6; max-width: 360px; margin: 0 auto; }

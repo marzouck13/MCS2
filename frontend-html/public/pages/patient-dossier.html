@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon dossier medical - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/composants-metier.css">
+    <link rel="stylesheet" href="/css/pages/patient-dossier.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Mon dossier</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div id="chargement" class="message message--avertissement" style="justify-content: center;">
+                    Chargement de votre dossier...
+                </div>
+
+                <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </span>
+                    <p id="texte-erreur" class="message__texte"></p>
+                </div>
+
+                <div id="contenu-dossier" hidden>
+                    <section class="patient-dossier__entete">
+                        <div class="patient-dossier__identite">
+                            <div class="patient-dossier__avatar" id="patient-initiale">?</div>
+                            <div class="patient-dossier__infos">
+                                <h1 class="patient-dossier__nom" id="patient-nom">-</h1>
+                                <p class="patient-dossier__details" id="patient-details">-</p>
+                            </div>
+                        </div>
+
+                        <div class="patient-dossier__badges" id="patient-badges"></div>
+
+                        <div id="patient-urgence" hidden></div>
+                    </section>
+
+                    <div class="onglets" id="onglets-dossier">
+                        <button type="button" class="onglet onglet--actif" data-cible="consultations">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path>
+                                <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path>
+                                <circle cx="20" cy="10" r="2"></circle>
+                            </svg>
+                            <span>Consultations</span>
+                            <span class="onglet__compteur" id="compteur-consultations">0</span>
+                        </button>
+
+                        <button type="button" class="onglet" data-cible="ordonnances">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            <span>Ordonnances</span>
+                            <span class="onglet__compteur" id="compteur-ordonnances">0</span>
+                        </button>
+
+                        <button type="button" class="onglet" data-cible="resultats">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 3h6v6l4 12H5L9 9V3z"></path>
+                                <path d="M9 15h6"></path>
+                            </svg>
+                            <span>Resultats</span>
+                            <span class="onglet__compteur" id="compteur-resultats">0</span>
+                        </button>
+                    </div>
+
+                    <div class="patient-dossier__liste" id="liste-consultations"></div>
+                    <div class="patient-dossier__liste" id="liste-ordonnances" hidden></div>
+                    <div class="patient-dossier__liste" id="liste-resultats" hidden></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/layout-patient.js"></script>
+    <script src="/js/composants-metier.js"></script>
+    <script src="/js/pages/patient-dossier.js"></script>
+</body>
+</html>

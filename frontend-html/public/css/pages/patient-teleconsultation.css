@@ -1,0 +1,40 @@
+.patient-teleconsultation__conteneur { max-width: 600px; margin: 0 auto; }
+
+/* Hero */
+.patient-teleconsultation__hero { text-align: center; padding: 20px 12px 24px; }
+.patient-teleconsultation__hero-icone { width: 68px; height: 68px; margin: 0 auto 14px; border-radius: var(--rayon-md); background-color: rgba(52, 152, 219, 0.12); color: var(--info); display: flex; align-items: center; justify-content: center; }
+.patient-teleconsultation__titre { font-size: 20px; font-weight: 800; color: var(--texte); margin-bottom: 6px; }
+.patient-teleconsultation__sous-titre { font-size: 13px; color: var(--texte-secondaire); line-height: 1.5; }
+
+/* Onglets */
+.patient-teleconsultation__onglets { display: flex; background-color: var(--fond); border: 1px solid var(--bordure); border-radius: var(--rayon-md); overflow: hidden; margin-bottom: 20px; }
+.patient-teleconsultation__onglet { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border: none; background: transparent; font-size: 13px; font-weight: 700; color: var(--texte-secondaire); cursor: pointer; transition: all 150ms ease; }
+.patient-teleconsultation__onglet--actif { background-color: var(--fond-carte); color: var(--info); border-bottom: 3px solid var(--info); }
+.patient-teleconsultation__onglet svg { flex-shrink: 0; }
+
+/* Contenu */
+.patient-teleconsultation__contenu { background-color: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon-md); padding: 20px; margin-bottom: 24px; }
+.patient-teleconsultation__input-code { font-size: 22px; font-weight: 800; letter-spacing: 4px; text-align: center; }
+
+/* Onglet scan */
+.patient-teleconsultation__scan-illustration { text-align: center; margin-bottom: 20px; }
+.patient-teleconsultation__scan-cadre { width: 140px; height: 140px; margin: 0 auto; border: 3px dashed var(--info); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--info); }
+.patient-teleconsultation__scan-titre { font-size: 16px; font-weight: 800; color: var(--texte); text-align: center; margin-bottom: 8px; }
+.patient-teleconsultation__scan-texte { font-size: 13px; color: var(--texte-secondaire); text-align: center; line-height: 1.5; margin-bottom: 20px; padding: 0 8px; }
+
+/* Historique */
+.patient-teleconsultation__historique-entete { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.patient-teleconsultation__historique-titre { font-size: 13px; font-weight: 800; color: var(--texte-secondaire); text-transform: uppercase; letter-spacing: 0.5px; }
+.patient-teleconsultation__historique-item { display: flex; align-items: center; gap: 12px; background-color: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon-md); padding: 12px; margin-bottom: 8px; cursor: pointer; }
+.patient-teleconsultation__historique-icone { width: 32px; height: 32px; border-radius: var(--rayon-md); background-color: rgba(52, 152, 219, 0.12); color: var(--info); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.patient-teleconsultation__historique-infos { flex: 1; min-width: 0; }
+.patient-teleconsultation__historique-nom { font-size: 14px; font-weight: 700; color: var(--texte); }
+.patient-teleconsultation__historique-meta { font-size: 11px; color: var(--texte-secondaire); margin-top: 2px; }
+.patient-teleconsultation__historique-date { font-size: 11px; font-weight: 600; color: var(--texte-desactive); flex-shrink: 0; }
+
+/* Scanner */
+.patient-teleconsultation__scanner-zone { position: relative; background-color: #000; border-radius: var(--rayon-md); overflow: hidden; min-height: 280px; display: flex; align-items: center; justify-content: center; }
+#reader { width: 100%; }
+.patient-teleconsultation__scanner-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; z-index: 10; text-align: center; padding: 16px; }
+.patient-teleconsultation__scanner-spinner { width: 36px; height: 36px; border: 4px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px; }
+@keyframes spin { to { transform: rotate(360deg); } }

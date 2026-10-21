@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/pages/patient-tableau-bord.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Tableau de bord</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <section class="patient-hero">
+                    <p class="patient-hero__label">Bonjour,</p>
+                    <h1 class="patient-hero__nom" id="hero-nom">Chargement...</h1>
+                    <div class="patient-hero__badges" id="hero-badges"></div>
+                </section>
+
+                <div class="patient-statistiques" id="statistiques">
+                    <div class="patient-statistique">
+                        <div class="patient-statistique__icone patient-statistique__icone--primaire">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path>
+                                <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path>
+                                <circle cx="20" cy="10" r="2"></circle>
+                            </svg>
+                        </div>
+                        <p class="patient-statistique__valeur" id="stat-consultations">0</p>
+                        <p class="patient-statistique__label">Consultations</p>
+                    </div>
+
+                    <div class="patient-statistique__separateur"></div>
+
+                    <div class="patient-statistique">
+                        <div class="patient-statistique__icone patient-statistique__icone--succes">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <p class="patient-statistique__valeur" id="stat-ordonnances">0</p>
+                        <p class="patient-statistique__label">Ordonnances</p>
+                    </div>
+
+                    <div class="patient-statistique__separateur"></div>
+
+                    <div class="patient-statistique">
+                        <div class="patient-statistique__icone patient-statistique__icone--info">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 3h6v6l4 12H5L9 9V3z"></path>
+                                <path d="M9 15h6"></path>
+                            </svg>
+                        </div>
+                        <p class="patient-statistique__valeur" id="stat-resultats">0</p>
+                        <p class="patient-statistique__label">Resultats</p>
+                    </div>
+
+                    <div class="patient-statistique__separateur"></div>
+
+                    <div class="patient-statistique">
+                        <div class="patient-statistique__icone patient-statistique__icone--avertissement">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                        </div>
+                        <p class="patient-statistique__valeur" id="stat-acces">0</p>
+                        <p class="patient-statistique__label">Acces</p>
+                    </div>
+                </div>
+
+                <section class="patient-section">
+                    <h2 class="patient-section__titre">Acces rapides</h2>
+                    <div class="patient-raccourcis">
+                        <a href="/patient/dossier" class="patient-raccourci patient-raccourci--primaire">
+                            <div class="patient-raccourci__icone patient-raccourci__icone--primaire">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <p class="patient-raccourci__titre">Mon dossier</p>
+                            <p class="patient-raccourci__desc">Consultations, ordonnances</p>
+                        </a>
+
+                        <a href="/patient/qr-code" class="patient-raccourci patient-raccourci--secondaire">
+                            <div class="patient-raccourci__icone patient-raccourci__icone--secondaire">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                    <line x1="14" y1="14" x2="14" y2="14.01"></line>
+                                    <line x1="21" y1="14" x2="21" y2="21"></line>
+                                    <line x1="14" y1="21" x2="14" y2="21.01"></line>
+                                    <line x1="18" y1="21" x2="18" y2="21.01"></line>
+                                    <line x1="21" y1="18" x2="21" y2="18.01"></line>
+                                </svg>
+                            </div>
+                            <p class="patient-raccourci__titre">Mes QR codes</p>
+                            <p class="patient-raccourci__desc">Partage et urgence</p>
+                        </a>
+
+                        <a href="/patient/journal-acces" class="patient-raccourci patient-raccourci--info">
+                            <div class="patient-raccourci__icone patient-raccourci__icone--info">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    <polyline points="9 12 11 14 15 10"></polyline>
+                                </svg>
+                            </div>
+                            <p class="patient-raccourci__titre">Journal d'acces</p>
+                            <p class="patient-raccourci__desc">Qui a consulte</p>
+                        </a>
+
+                        <a href="/patient/consentements" class="patient-raccourci patient-raccourci--avertissement">
+                            <div class="patient-raccourci__icone patient-raccourci__icone--avertissement">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <polyline points="16 11 18 13 22 9"></polyline>
+                                </svg>
+                            </div>
+                            <p class="patient-raccourci__titre">Consentements</p>
+                            <p class="patient-raccourci__desc">Gerer les acces</p>
+                        </a>
+                    </div>
+                </section>
+
+                <p class="patient-note-bas">
+                    Mon Carnet Sante — Votre dossier medical numerique securise
+                </p>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/layout-patient.js"></script>
+    <script src="/js/pages/patient-tableau-bord.js"></script>
+</body>
+</html>

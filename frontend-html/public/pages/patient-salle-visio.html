@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visio - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/pages/patient-salle-visio.css">
+</head>
+<body>
+    <div class="page-visio-patient">
+        <header class="page-visio-patient__entete">
+            <div>
+                <p class="page-visio-patient__titre" id="visio-titre">Visio - Patient</p>
+                <p class="page-visio-patient__sous-titre" id="visio-soustitre">Session de teleconsultation MiroTalk</p>
+            </div>
+            <div class="page-visio-patient__actions">
+                <button type="button" class="bouton bouton--primaire bouton--petit" id="bouton-ouvrir-onglet">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Ouvrir en plein écran
+                </button>
+                <button type="button" class="bouton bouton--danger bouton--petit" id="bouton-quitter">
+                    Quitter
+                </button>
+            </div>
+        </header>
+
+        <div class="page-visio-patient__conteneur">
+            <iframe
+                id="visio-iframe"
+                class="page-visio-patient__iframe"
+                src="about:blank"
+                title="Salle de teleconsultation"
+                allow="camera *; microphone *; display-capture *; fullscreen *; autoplay *; clipboard-read *; clipboard-write *; speaker-selection *; web-share *; picture-in-picture *"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <div class="page-visio-patient__chargement" id="visio-chargement">
+                <div class="page-visio-patient__spinner"></div>
+                <p class="page-visio-patient__chargement-titre">Preparation de la salle...</p>
+                <p class="page-visio-patient__chargement-aide" id="visio-aide">
+                    Si la salle ne s'affiche pas, cliquez sur "Ouvrir en plein écran".
+                </p>
+                <button type="button" id="bouton-ouvrir-onglet-chargement" class="bouton bouton--primaire bouton--grand" style="margin-top: 16px;">
+                    Ouvrir la salle dans un nouvel onglet
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/pages/patient-salle-visio.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+.page-inscription-patient {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 16px;
+    background-color: var(--primaire);
+}
+
+.page-inscription-patient__voile {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 76, 129, 0.95), rgba(15, 76, 129, 0.70), rgba(0, 0, 0, 0.60));
+}
+
+.page-inscription-patient__carte {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 980px;
+    background-color: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--rayon-md);
+    box-shadow: var(--ombre-forte);
+    overflow: hidden;
+}
+
+.page-inscription-patient__entete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 32px;
+    border-bottom: 2px solid var(--bordure);
+}
+
+.page-inscription-patient__titre {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 4px;
+}
+
+.page-inscription-patient__sous-titre {
+    font-size: 14px;
+    color: var(--texte-secondaire);
+}
+
+.page-inscription-patient__corps {
+    padding: 32px;
+}
+
+.page-inscription-patient__section-titre {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primaire);
+    margin: 0 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--bordure);
+}
+
+.page-inscription-patient__sous-section {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 16px 0 12px;
+}
+
+.page-inscription-patient__sous-section:first-child {
+    margin-top: 0;
+}
+
+.page-inscription-patient__grille {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 48px;
+    margin-top: 20px;
+}
+
+.page-inscription-patient__actions {
+    margin-top: 24px;
+}
+
+.page-inscription-patient__lien {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--texte-secondaire);
+}
+
+.page-inscription-patient__lien a {
+    color: var(--primaire);
+    font-weight: 600;
+}
+
+.page-inscription-patient__retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--rayon-sm);
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    color: var(--texte);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 150ms ease, border-color 150ms ease;
+    flex-shrink: 0;
+}
+
+.page-inscription-patient__retour:hover {
+    background-color: var(--fond-sombre);
+    border-color: var(--bordure-forte);
+    text-decoration: none;
+}
+
+.bloc-npi-patient {
+    background-color: var(--fond);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.bloc-npi-patient .page-inscription-patient__section-titre {
+    margin-top: 0;
+}
+
+.badge-verifie {
+    background-color: var(--succes-transparent);
+    border: 1px solid var(--succes);
+    border-radius: var(--rayon-md);
+    padding: 12px 16px;
+    margin-top: 12px;
+}
+
+.badge-verifie__titre {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--succes);
+    margin-bottom: 4px;
+}
+
+.badge-verifie__infos {
+    font-size: 13px;
+    color: var(--texte);
+}
+
+.boutons-sexe {
+    display: flex;
+    gap: 12px;
+}
+
+.bouton-sexe {
+    flex: 1;
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texte-secondaire);
+    cursor: pointer;
+    transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+
+.bouton-sexe:hover {
+    border-color: var(--bordure-forte);
+}
+
+.bouton-sexe--actif {
+    border-color: var(--primaire);
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+    font-weight: 700;
+}
+
+.grille-groupes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bouton-groupe {
+    min-width: 54px;
+    padding: 10px 14px;
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texte-secondaire);
+    cursor: pointer;
+    transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+
+.bouton-groupe:hover {
+    border-color: var(--bordure-forte);
+}
+
+.bouton-groupe--actif {
+    border-color: var(--primaire);
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+}
+
+@media (min-width: 900px) {
+    .page-inscription-patient__grille {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-inscription-patient__entete {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .page-inscription-patient__corps {
+        padding: 20px;
+    }
+}

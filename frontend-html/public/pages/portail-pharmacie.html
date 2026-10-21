@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Pharmacie - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/modale.css">
+    <link rel="stylesheet" href="/css/alertes.css">
+    <link rel="stylesheet" href="/css/pages/portail-pharmacie.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Portail Pharmacie</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="pharmacie__conteneur">
+                    <div class="pharmacie__carte">
+                        <div class="pharmacie__onglets">
+                            <button type="button" class="pharmacie__onglet pharmacie__onglet--actif" data-mode="npi" id="onglet-npi">Par NPI Patient</button>
+                            <button type="button" class="pharmacie__onglet" data-mode="code" id="onglet-code">Par Code Ordonnance</button>
+                        </div>
+
+                        <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                            <span class="message__icone" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            </span>
+                            <p id="texte-erreur" class="message__texte"></p>
+                        </div>
+
+                        <form id="formulaire-recherche" class="pharmacie__formulaire" novalidate>
+                            <div class="champ" style="margin-bottom: 0;">
+                                <input
+                                    id="champ-saisie"
+                                    type="text"
+                                    class="champ__input"
+                                    placeholder="Ex : 2222222222"
+                                    maxlength="10"
+                                    inputmode="numeric"
+                                    required
+                                >
+                            </div>
+                            <button type="submit" id="bouton-rechercher" class="bouton bouton--primaire">
+                                Rechercher
+                            </button>
+                        </form>
+                    </div>
+
+                    <div id="zone-resultats" hidden>
+                        <div id="entete-patient"></div>
+                        <h2 class="pharmacie__titre-section" id="titre-ordonnances">Ordonnances actives</h2>
+                        <div id="liste-ordonnances"></div>
+                    </div>
+
+                    <div id="zone-historique" style="margin-top: 32px;">
+                        <h2 class="pharmacie__titre-section">Dernieres delivrances</h2>
+                        <div class="historique" id="liste-historique">
+                            <div style="padding: 16px; text-align: center; font-size: 13px; color: var(--texte-secondaire);">Chargement...</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modale-overlay" id="modale-delivrance" hidden>
+        <div class="modale">
+            <div class="modale__entete">
+                <h2 class="modale__titre">Confirmer la delivrance</h2>
+                <button type="button" class="modale__fermer" id="fermer-modale-delivrance">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modale__corps">
+                <p style="font-size: 14px; color: var(--texte); line-height: 1.6; margin-bottom: 16px;">
+                    Voulez-vous vraiment delivrer l'ordonnance <strong id="code-a-delivrer"></strong> ?
+                </p>
+                <p style="font-size: 12px; color: var(--texte-secondaire);">
+                    Cette action est definitive et empechera toute autre delivrance.
+                </p>
+                <div class="modale__actions">
+                    <button type="button" class="bouton bouton--neutre" id="annuler-delivrance">Annuler</button>
+                    <button type="button" class="bouton bouton--primaire" id="confirmer-delivrance">Confirmer la delivrance</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/alertes.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/pages/portail-pharmacie.js"></script>
+</body>
+</html>

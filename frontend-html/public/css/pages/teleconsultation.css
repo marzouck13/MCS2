@@ -1,0 +1,229 @@
+.teleconsultation__conteneur {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.teleconsultation__liste {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.session-carte {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.session-carte__haut {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.session-carte__icone {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--rayon-md);
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.session-carte__code {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--texte);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.session-carte__meta {
+    font-size: 13px;
+    color: var(--texte);
+}
+
+.session-carte__date {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+    margin-top: 4px;
+}
+
+.session-carte__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.qr-conteneur-teleconsultation {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 24px;
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    box-shadow: var(--ombre-legere);
+    margin: 16px auto;
+}
+
+.teleconsultation__vide {
+    text-align: center;
+    padding: 48px 24px;
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+}
+
+.teleconsultation__vide-icone {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-color: var(--fond-sombre);
+    color: var(--texte-desactive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teleconsultation__vide-titre {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.teleconsultation__vide-desc {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    margin-bottom: 24px;
+}
+
+.teleconsultation__conteneur {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.teleconsultation__liste {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.session-carte {
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.session-carte__haut {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.session-carte__icone {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--rayon-md);
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.session-carte__code {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--texte);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.session-carte__meta {
+    font-size: 13px;
+    color: var(--texte);
+}
+
+.session-carte__date {
+    font-size: 12px;
+    color: var(--texte-secondaire);
+    margin-top: 4px;
+}
+
+.session-carte__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.qr-conteneur-teleconsultation {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 24px;
+    border-radius: var(--rayon-md);
+    border: 2px solid var(--bordure);
+    box-shadow: var(--ombre-legere);
+    margin: 16px auto;
+}
+
+.teleconsultation__vide {
+    text-align: center;
+    padding: 48px 24px;
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+}
+
+.teleconsultation__vide-icone {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-color: var(--fond-sombre);
+    color: var(--texte-desactive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teleconsultation__vide-titre {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.teleconsultation__vide-desc {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    margin-bottom: 24px;
+}
+
+.modale__actions {
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .modale__actions .bouton {
+        flex: 1 1 100%;
+    }
+}

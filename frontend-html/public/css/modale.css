@@ -1,0 +1,71 @@
+.modale-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 100;
+}
+
+.modale-overlay[hidden] {
+    display: none !important;
+}
+
+.modale {
+    background-color: var(--fond-carte);
+    border-radius: var(--rayon-md);
+    box-shadow: var(--ombre-forte);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modale__entete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--bordure);
+}
+
+.modale__titre {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--texte);
+}
+
+.modale__fermer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--rayon-md);
+    color: var(--texte-secondaire);
+    transition: background-color 150ms ease;
+}
+
+.modale__fermer:hover {
+    background-color: var(--fond-sombre);
+    color: var(--texte);
+}
+
+.modale__corps {
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.modale__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 2px solid var(--bordure);
+}

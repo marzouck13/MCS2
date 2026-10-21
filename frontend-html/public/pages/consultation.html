@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle consultation - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/pages/consultation.css">
+</head>
+<body>
+    <div class="layout-pro">
+        <div id="conteneur-sidebar"></div>
+
+        <div class="layout-pro__contenu">
+            <header class="layout-pro__entete-mobile">
+                <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="layout-pro__titre-mobile">Nouvelle consultation</span>
+            </header>
+
+            <main class="layout-pro__principal">
+                <div class="consultation__conteneur">
+                    <div id="zone-erreur" hidden class="message message--erreur" role="alert">
+                        <span class="message__icone" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </span>
+                        <p id="texte-erreur" class="message__texte"></p>
+                    </div>
+
+                    <form id="formulaire-consultation" novalidate>
+                        <div class="carte">
+                            <h2 class="consultation__section-titre">Motif et diagnostic</h2>
+
+                            <div class="champ">
+                                <label for="champ-motif" class="champ__label">Motif de consultation <span class="champ__obligatoire">*</span></label>
+                                <input type="text" id="champ-motif" class="champ__input" placeholder="Ex : Fievre persistante depuis 3 jours">
+                                <p class="champ__erreur" id="erreur-motif" hidden></p>
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-diagnostic" class="champ__label">Diagnostic</label>
+                                <input type="text" id="champ-diagnostic" class="champ__input" placeholder="Ex : Paludisme simple">
+                            </div>
+
+                            <div class="champ">
+                                <label for="champ-notes" class="champ__label">Notes medicales</label>
+                                <textarea id="champ-notes" class="champ__input" rows="4" placeholder="Observations cliniques, examens prescrits..."></textarea>
+                            </div>
+
+                            <h2 class="consultation__section-titre">Constantes vitales</h2>
+
+                            <div class="consultation__grille-constantes">
+                                <div class="champ">
+                                    <label for="champ-tension" class="champ__label">Tension arterielle</label>
+                                    <input type="text" id="champ-tension" class="champ__input" placeholder="Ex : 120/80">
+                                    <p class="champ__aide">mmHg</p>
+                                </div>
+                                <div class="champ">
+                                    <label for="champ-temperature" class="champ__label">Temperature</label>
+                                    <input type="number" id="champ-temperature" class="champ__input" placeholder="Ex : 37.5" step="0.1">
+                                    <p class="champ__erreur" id="erreur-temperature" hidden></p>
+                                    <p class="champ__aide">Entre 30 et 45 Celsius</p>
+                                </div>
+                                <div class="champ">
+                                    <label for="champ-poids" class="champ__label">Poids</label>
+                                    <input type="number" id="champ-poids" class="champ__input" placeholder="Ex : 65" step="0.1">
+                                    <p class="champ__erreur" id="erreur-poids" hidden></p>
+                                    <p class="champ__aide">Entre 1 et 500 kg</p>
+                                </div>
+                                <div class="champ">
+                                    <label for="champ-taille" class="champ__label">Taille</label>
+                                    <input type="number" id="champ-taille" class="champ__input" placeholder="Ex : 175" step="1">
+                                    <p class="champ__erreur" id="erreur-taille" hidden></p>
+                                    <p class="champ__aide">Entre 30 et 250 cm</p>
+                                </div>
+                            </div>
+
+                            <div class="consultation__actions">
+                                <button type="submit" id="bouton-enregistrer" class="bouton bouton--primaire bouton--grand">
+                                    Enregistrer la consultation
+                                </button>
+                                <a href="#" id="lien-annuler" class="bouton bouton--neutre bouton--grand" style="text-decoration: none; text-align: center;">
+                                    Annuler
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="zone-succes" hidden>
+                        <div class="carte">
+                            <div class="consultation__succes">
+                                <div class="consultation__succes-icone" aria-hidden="true">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <h2 class="consultation__succes-titre">Consultation enregistree avec succes</h2>
+                                <p class="consultation__succes-desc">Voulez-vous prescrire une ordonnance maintenant ?</p>
+                                <div class="consultation__succes-actions">
+                                    <a href="#" id="lien-ordonnance" class="bouton bouton--primaire">
+                                        Creer une ordonnance
+                                    </a>
+                                    <a href="#" id="lien-retour-dossier" class="bouton bouton--neutre" style="text-decoration: none; text-align: center;">
+                                        Retour au dossier
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/pages/consultation.js"></script>
+</body>
+</html>

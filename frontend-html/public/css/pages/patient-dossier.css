@@ -1,0 +1,198 @@
+/* ============================================
+   EN-TÊTE PATIENT
+   ============================================ */
+.patient-dossier__entete {
+    background-color: var(--fond-carte);
+    border: 1px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.patient-dossier__identite {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--bordure);
+}
+
+.patient-dossier__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primaire-transparent);
+    color: var(--primaire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.patient-dossier__infos {
+    flex: 1;
+    min-width: 0;
+}
+
+.patient-dossier__nom {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.patient-dossier__details {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    line-height: 1.5;
+}
+
+.patient-dossier__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.patient-dossier__badges .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.patient-dossier__badges .badge svg {
+    flex-shrink: 0;
+}
+
+.patient-dossier__urgence {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    background-color: var(--urgence-transparent);
+    border: 1px solid var(--urgence);
+    border-radius: var(--rayon-md);
+    font-size: 13px;
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+.patient-dossier__urgence strong {
+    color: var(--urgence);
+}
+
+.patient-dossier__urgence-icone {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--urgence);
+}
+
+/* ============================================
+   ONGLETS (basés sur composants-metier.css)
+   ============================================ */
+#onglets-dossier {
+    margin-bottom: 20px;
+    background-color: var(--fond-carte);
+    border-radius: var(--rayon-md);
+    padding: 0 8px;
+    border: 1px solid var(--bordure);
+    overflow-x: auto;
+    display: flex;
+}
+
+#onglets-dossier .onglet {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#onglets-dossier .onglet--actif {
+    border-bottom-color: var(--primaire);
+    color: var(--primaire);
+}
+
+/* ============================================
+   LISTES
+   ============================================ */
+.patient-dossier__liste {
+    margin-bottom: 24px;
+}
+
+/* ============================================
+   ÉTAT VIDE
+   ============================================ */
+.patient-dossier__vide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px;
+    background-color: var(--fond-carte);
+    border: 1px dashed var(--bordure-forte);
+    border-radius: var(--rayon-md);
+}
+
+.patient-dossier__vide-icone {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--fond-sombre);
+    color: var(--texte-desactive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.patient-dossier__vide-titre {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 8px;
+}
+
+.patient-dossier__vide-desc {
+    font-size: 13px;
+    color: var(--texte-secondaire);
+    line-height: 1.6;
+    max-width: 360px;
+}
+
+/* ============================================
+   SECTION "ORPHELINES" (ordonnances passées)
+   ============================================ */
+.patient-dossier__section-titre {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--texte-secondaire);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 24px 0 12px;
+    padding-left: 4px;
+}
+
+.patient-dossier__section-titre:first-child {
+    margin-top: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (min-width: 640px) {
+    .patient-dossier__entete {
+        padding: 24px;
+    }
+
+    .patient-dossier__nom {
+        font-size: 22px;
+    }
+}

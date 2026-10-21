@@ -1,0 +1,57 @@
+:root {
+    --primaire: #0F4C81;
+    --primaire-clair: #3E7CB1;
+    --primaire-fonce: #0A3459;
+    --secondaire: #16A085;
+    --secondaire-clair: #1ABC9C;
+    --secondaire-fonce: #0E6F5C;
+
+    --urgence: #C0392B;
+    --succes: #27AE60;
+    --avertissement: #F39C12;
+    --erreur: #E74C3C;
+    --info: #3498DB;
+
+    --fond: #F8F9FA;
+    --fond-carte: #FFFFFF;
+    --fond-sombre: #ECF0F1;
+    --fond-desactive: #F0F0F0;
+
+    --texte: #2C3E50;
+    --texte-secondaire: #7F8C8D;
+    --texte-clair: #FFFFFF;
+    --texte-desactive: #BDC3C7;
+    --texte-placeholder: #95A5A6;
+
+    --bordure: #E1E8ED;
+    --bordure-forte: #CBD5E0;
+    --separateur: #ECF0F1;
+
+    --primaire-transparent: rgba(15, 76, 129, 0.22);
+    --urgence-transparent: rgba(192, 58, 43, 0.18);
+    --succes-transparent: rgba(39, 174, 95, 0.16);
+    --avertissement-transparent: rgba(243, 157, 18, 0.16);
+    --erreur-transparent: rgba(231, 77, 60, 0.17);
+    --info-transparent: rgba(52, 152, 219, 0.17);
+
+    --police: 'Inter', system-ui, -apple-system, sans-serif;
+    --taille-base: 15px;
+    --interligne: 1.5;
+
+    --rayon-sm: 5px;
+    --rayon-md: 5px;
+    --rayon-lg: 10px;
+    --rayon-plein: 9999px;
+
+    --ombre-legere: 0 1px 2px rgba(0, 0, 0, 0.13);
+    --ombre-moyenne: 0 4px 12px rgba(0, 0, 0, 0.13);
+    --ombre-forte: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    --espace-1: 4px;
+    --espace-2: 8px;
+    --espace-3: 12px;
+    --espace-4: 16px;
+    --espace-5: 20px;
+    --espace-6: 24px;
+    --espace-8: 32px;
+}

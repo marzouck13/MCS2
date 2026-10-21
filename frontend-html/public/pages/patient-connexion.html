@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Patient - Mon Carnet Sante</title>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/composants.css">
+    <link rel="stylesheet" href="/css/pages/patient-connexion.css">
+</head>
+<body>
+    <main class="page-connexion-patient">
+        <div class="page-connexion-patient__voile" aria-hidden="true"></div>
+
+        <section class="page-connexion-patient__carte">
+            <div id="etape-identifiants">
+                <a href="/connexion" class="page-connexion-patient__retour">
+                   <strong> ← Je suis un professionnel de santé </strong>
+                </a>
+
+                <h1 class="page-connexion-patient__titre">Connexion Patient</h1>
+                <p class="page-connexion-patient__sous-titre">
+                    Entrez votre NPI et le numéro de téléphone associé pour recevoir un code de vérification par SMS.
+                </p>
+
+                <div id="zone-erreur-etape1" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </span>
+                    <p id="texte-erreur-etape1" class="message__texte"></p>
+                </div>
+
+                <form id="formulaire-identifiants" novalidate>
+                    <div class="champ">
+                        <label for="champ-npi" class="champ__label">Numéro Personnel d'Identification (NPI) <span class="champ__obligatoire">*</span></label>
+                        <input type="text" id="champ-npi" class="champ__input" placeholder="Ex : 7420608664" maxlength="10" inputmode="numeric" required>
+                        <p class="champ__aide">Le NPI est un identifiant à 10 chiffres délivré par l'ANIP.</p>
+                        <p class="champ__erreur" id="erreur-npi" hidden></p>
+                    </div>
+
+                    <div class="champ">
+                        <label for="champ-telephone" class="champ__label">Numéro de téléphone <span class="champ__obligatoire">*</span></label>
+                        <input type="tel" id="champ-telephone" class="champ__input" placeholder="Ex : 0197000101" maxlength="13" inputmode="tel" required>
+                        <p class="champ__aide">Le numéro doit commencer par 01.</p>
+                        <p class="champ__erreur" id="erreur-telephone" hidden></p>
+                    </div>
+
+                    <button type="submit" id="bouton-recevoir-code" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">
+                        Recevoir un code
+                    </button>
+                </form>
+
+                <p class="page-connexion-patient__lien">
+                    Pas encore inscrit ? <a href="/patient/inscription"><br><br><strong>Créer mon carnet</strong></a>
+                </p>
+            </div>
+
+            <div id="etape-otp" hidden>
+                <button type="button" id="bouton-retour" class="page-connexion-patient__retour-btn">← Retour</button>
+
+                <h1 class="page-connexion-patient__titre">Vérification</h1>
+                <p class="page-connexion-patient__sous-titre">
+                    Un code à 6 chiffres a été envoyé par SMS au <strong id="tel-affiche">-</strong>.
+                </p>
+
+                <div id="encart-dev" hidden class="page-connexion-patient__encart-dev">
+                    <p class="page-connexion-patient__encart-dev-titre">Mode développement</p>
+                    <p class="page-connexion-patient__encart-dev-texte">
+                        Code OTP de test : <strong id="code-dev">-</strong>
+                    </p>
+                </div>
+
+                <div id="zone-erreur-etape2" hidden class="message message--erreur" role="alert">
+                    <span class="message__icone" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </span>
+                    <p id="texte-erreur-etape2" class="message__texte"></p>
+                </div>
+
+                <form id="formulaire-otp" novalidate>
+                    <div class="champ">
+                        <label for="champ-otp" class="champ__label">Code de vérification <span class="champ__obligatoire">*</span></label>
+                        <input type="text" id="champ-otp" class="champ__input champ__input--otp" placeholder="000000" maxlength="6" inputmode="numeric" autocomplete="one-time-code" required>
+                        <p class="champ__erreur" id="erreur-otp" hidden></p>
+                    </div>
+
+                    <div class="page-connexion-patient__compteurs">
+                        <p>Code valable : <strong id="compteur-validite">05:00</strong></p>
+                        <button type="button" id="bouton-renvoyer" class="page-connexion-patient__bouton-renvoyer" disabled>
+                            Renvoyer dans 30 s
+                        </button>
+                    </div>
+
+                    <button type="submit" id="bouton-se-connecter" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">
+                        Se connecter
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/api-client.js"></script>
+    <script src="/js/pages/patient-connexion.js"></script>
+</body>
+</html>

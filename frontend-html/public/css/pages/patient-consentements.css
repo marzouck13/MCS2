@@ -1,0 +1,46 @@
+.patient-consentements__conteneur { max-width: 760px; margin: 0 auto; }
+.patient-consentements__entete { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.patient-consentements__titre { font-size: 22px; font-weight: 800; color: var(--texte); margin-bottom: 4px; }
+.patient-consentements__sous-titre { font-size: 14px; color: var(--texte-secondaire); }
+
+.patient-consentements__filtres { display: flex; gap: 8px; margin-bottom: 20px; }
+.patient-consentements__filtre {
+    padding: 8px 16px;
+    border-radius: var(--rayon-md);
+    border: 1px solid var(--bordure);
+    background-color: var(--fond-carte);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texte-secondaire);
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+.patient-consentements__filtre--actif { background-color: var(--primaire); color: var(--texte-clair); border-color: var(--primaire); }
+
+/* Carte consentement */
+.patient-consentement__carte { background-color: var(--fond-carte); border: 1px solid var(--bordure); border-radius: var(--rayon-md); padding: 16px; margin-bottom: 12px; }
+.patient-consentement__entete { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.patient-consentement__avatar { width: 44px; height: 44px; border-radius: 50%; background-color: var(--primaire-transparent); color: var(--primaire); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; font-weight: 800; }
+.patient-consentement__infos { flex: 1; min-width: 0; }
+.patient-consentement__nom { font-size: 15px; font-weight: 700; color: var(--texte); margin-bottom: 2px; }
+.patient-consentement__type { font-size: 12px; color: var(--texte-secondaire); }
+.patient-consentement__badge { flex-shrink: 0; padding: 4px 10px; border-radius: var(--rayon-sm); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; }
+.patient-consentement__badge--actif { background-color: var(--succes-transparent); color: var(--succes); }
+.patient-consentement__badge--revoque { background-color: var(--fond-sombre); color: var(--texte-desactive); }
+
+.patient-consentement__details { background-color: var(--fond); border-radius: var(--rayon-md); padding: 10px 12px; margin-bottom: 12px; }
+.patient-consentement__detail { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--texte-secondaire); margin-bottom: 4px; }
+.patient-consentement__detail:last-child { margin-bottom: 0; }
+.patient-consentement__detail svg { flex-shrink: 0; }
+
+.patient-consentement__actions { display: flex; gap: 8px; }
+.patient-consentement__actions .bouton { flex: 1; }
+
+/* Etat vide */
+.patient-consentements__vide { text-align: center; padding: 48px 24px; }
+.patient-consentements__vide-icone { width: 80px; height: 80px; border-radius: 50%; background-color: var(--fond-sombre); color: var(--texte-desactive); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.patient-consentements__vide-titre { font-size: 16px; font-weight: 700; color: var(--texte); margin-bottom: 8px; }
+.patient-consentements__vide-texte { font-size: 13px; color: var(--texte-secondaire); line-height: 1.6; max-width: 360px; margin: 0 auto 16px; }
+
+/* Modale création */
+.patient-consentements__badge-pro { display: flex; justify-content: space-between; align-items: center; background-color: var(--succes-transparent); border: 1px solid var(--succes); border-radius: var(--rayon-md); padding: 12px; margin-bottom: 16px; }

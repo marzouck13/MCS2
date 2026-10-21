@@ -1,0 +1,55 @@
+.page-erreur {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--fond);
+}
+
+.page-erreur__bloc {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--fond-carte);
+    border: 2px solid var(--bordure);
+    border-radius: var(--rayon-md);
+    padding: 48px 32px;
+    box-shadow: var(--ombre-legere);
+}
+
+.page-erreur__code {
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--primaire);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -2px;
+}
+
+.page-erreur__titre {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 12px;
+}
+
+.page-erreur__description {
+    font-size: 14px;
+    color: var(--texte-secondaire);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.page-erreur__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (min-width: 480px) {
+    .page-erreur__actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
