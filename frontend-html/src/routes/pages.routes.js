@@ -191,4 +191,17 @@ routeur.get(
     (requete, reponse) => reponse.sendFile(cheminPage('mode-urgence.html'))
 );
 
+routeur.get('/guide-patient', (requete, reponse) => 
+    reponse.sendFile(cheminPage('guide-patient.html'))
+);
+routeur.get('/faq-technique', (requete, reponse) => 
+    reponse.sendFile(cheminPage('faq-technique.html'))
+);
+routeur.get('/cgu', (requete, reponse) => 
+    reponse.sendFile(cheminPage('cgu.html'))
+);
+routeur.get('/confidentialite', (requete, reponse) => 
+    reponse.sendFile(cheminPage('confidentialite.html'))
+);
+
 module.exports = routeur;

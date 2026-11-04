@@ -6,12 +6,22 @@
     justify-content: center;
     padding: 32px 16px;
     background-color: var(--primaire);
+    background-image: url('/img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .page-connexion__voile {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(15, 76, 129, 0.95), rgba(15, 76, 129, 0.70), rgba(0, 0, 0, 0.60));
+    background: linear-gradient(
+        135deg,
+        rgba(15, 76, 129, 0.85),
+        rgba(15, 76, 129, 0.65),
+        rgba(0, 0, 0, 0.60)
+    );
 }
 
 .page-connexion__carte {
@@ -19,7 +29,7 @@
     z-index: 1;
     width: 100%;
     max-width: 440px;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: var(--rayon-md);
@@ -51,6 +61,12 @@
 .page-connexion__lien a {
     color: var(--primaire);
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .page-connexion {
+        background-attachment: scroll;
+    }
 }
 
 @media (max-width: 480px) {
