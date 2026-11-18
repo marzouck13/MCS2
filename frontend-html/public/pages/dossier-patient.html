@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dossier patient - Mon Carnet Sante</title>
+    <title>Dossier patient - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -63,7 +63,7 @@
                             Ordonnances <span class="onglet__compteur" id="compteur-ordonnances">0</span>
                         </button>
                         <button class="onglet" data-cible="resultats">
-                            Resultats <span class="onglet__compteur" id="compteur-resultats">0</span>
+                            Résultats <span class="onglet__compteur" id="compteur-resultats">0</span>
                         </button>
                     </div>
 
@@ -78,7 +78,7 @@
     <div class="modale-overlay" id="modale-resultat" hidden>
         <div class="modale">
             <div class="modale__entete">
-                <h2 class="modale__titre">Ajouter un resultat d'examen</h2>
+                <h2 class="modale__titre">Ajouter un résultat d'examen</h2>
                 <button type="button" class="modale__fermer" id="fermer-modale-resultat">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -87,19 +87,19 @@
                 <form id="formulaire-resultat">
                     <div class="champ">
                         <label class="champ__label">Type d'examen <span class="champ__obligatoire">*</span></label>
-                        <input type="text" id="resultat-type" class="champ__input" placeholder="Ex : NFS, Glycemie" required>
+                        <input type="text" id="resultat-type" class="champ__input" placeholder="Ex : NFS, Glycémie" required>
                     </div>
                     <div class="champ">
                         <label class="champ__label">Laboratoire</label>
                         <input type="text" id="resultat-labo" class="champ__input" placeholder="Ex : Labo Central">
                     </div>
                     <div class="champ">
-                        <label class="champ__label">Resultat</label>
-                        <textarea id="resultat-texte" class="champ__input" rows="3" placeholder="Valeurs mesurees..."></textarea>
+                        <label class="champ__label">Résultat</label>
+                        <textarea id="resultat-texte" class="champ__input" rows="3" placeholder="Valeurs mesurées..."></textarea>
                     </div>
                     <div class="champ">
                         <label class="champ__label">Conclusion</label>
-                        <textarea id="resultat-conclusion" class="champ__input" rows="2" placeholder="Interpretation medicale..."></textarea>
+                        <textarea id="resultat-conclusion" class="champ__input" rows="2" placeholder="Interprétation médicale..."></textarea>
                     </div>
                     <div class="modale__actions">
                         <button type="button" class="bouton bouton--neutre" id="annuler-resultat">Annuler</button>
@@ -113,7 +113,7 @@
     <div class="modale-overlay" id="modale-teleconsultation" hidden>
         <div class="modale">
             <div class="modale__entete">
-                <h2 class="modale__titre">Session de teleconsultation</h2>
+                <h2 class="modale__titre">Session de téléconsultation</h2>
                 <button type="button" class="modale__fermer" id="fermer-modale-teleconsultation">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -125,7 +125,7 @@
                 <div class="qr-conteneur" id="qr-teleconsultation-conteneur">
                     <div id="qrcode-teleconsultation"></div>
                     <p class="qr-code-session" id="code-session">-</p>
-                    <p class="qr-code-label">Mon Carnet Sante - Teleconsultation</p>
+                    <p class="qr-code-label">Mon Carnet Santé - Téléconsultation</p>
                 </div>
                 <div class="modale__actions" style="justify-content: center; border-top: none; padding-top: 0; gap: 8px;">
                     <button type="button" class="bouton bouton--neutre" id="fermer-teleconsultation">Fermer</button>

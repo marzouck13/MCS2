@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acces refuse - Mon Carnet Sante</title>
+    <title>Accès refusé - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -19,17 +19,17 @@
                     <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
                 </svg>
             </div>
-            <h1 class="page-non-autorise__titre">Acces refuse</h1>
+            <h1 class="page-non-autorise__titre">Accès refusé</h1>
             <p class="page-non-autorise__description">
-                Vous n'avez pas les droits necessaires pour acceder a cette page.
-                Verifiez votre role ou reconnectez-vous avec un compte autorise.
+                Vous n'avez pas les droits nécessaires pour accéder à cette page.
+                Vérifiez votre rôle ou reconnectez-vous avec un compte autorisé.
             </p>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
                 <button type="button" id="bouton-se-connecter" class="bouton bouton--primaire">
                     Se reconnecter
                 </button>
                 <button type="button" id="bouton-retour" class="bouton bouton--neutre">
-                    Page precedente
+                    Page précédente
                 </button>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 try {
                     await window.ClientMCS.fermerSession();
                 } catch {
-                    // Ignorer : on redirige de toute facon
+                    // Ignorer : on redirige de toute façon
                 }
                 window.location.href = '/connexion';
             });

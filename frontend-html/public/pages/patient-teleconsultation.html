@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teleconsultation - Mon Carnet Sante</title>
+    <title>Téléconsultation - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -22,7 +22,7 @@
                 <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
-                <span class="layout-pro__titre-mobile">Teleconsultation</span>
+                <span class="layout-pro__titre-mobile">Téléconsultation</span>
             </header>
 
             <main class="layout-pro__principal">
@@ -33,7 +33,7 @@
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14v-4z"></path><rect x="3" y="6" width="12" height="12" rx="2"></rect></svg>
                         </div>
                         <h1 class="patient-teleconsultation__titre">Rejoindre une consultation</h1>
-                        <p class="patient-teleconsultation__sous-titre">Votre medecin vous a communique un code ou un QR code</p>
+                        <p class="patient-teleconsultation__sous-titre">Votre médecin vous a communiqué un code ou un QR code</p>
                     </div>
 
                     <!-- Onglets -->
@@ -53,7 +53,7 @@
                         <div class="champ">
                             <label class="champ__label">Code de session</label>
                             <input type="text" id="champ-code" class="champ__input patient-teleconsultation__input-code" placeholder="TC-ABC123" maxlength="20">
-                            <p class="champ__aide">Ce code vous a ete transmis par SMS, WhatsApp ou de vive voix.</p>
+                            <p class="champ__aide">Ce code vous a été transmis par SMS, WhatsApp ou de vive voix.</p>
                         </div>
                         <button type="button" id="bouton-rejoindre" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur" disabled>
                             Rejoindre la session
@@ -67,17 +67,17 @@
                                 <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path></svg>
                             </div>
                         </div>
-                        <p class="patient-teleconsultation__scan-titre">Scannez le QR du medecin</p>
-                        <p class="patient-teleconsultation__scan-texte">Votre medecin affiche un QR code a l ecran. Ouvrez la camera et visez le code pour rejoindre la session.</p>
+                        <p class="patient-teleconsultation__scan-titre">Scannez le QR du médecin</p>
+                        <p class="patient-teleconsultation__scan-texte">Votre médecin affiche un QR code à l'écran. Ouvrez la caméra et visez le code pour rejoindre la session.</p>
                         <button type="button" id="bouton-ouvrir-camera" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">
-                            Ouvrir la camera
+                            Ouvrir la caméra
                         </button>
                     </div>
 
                     <!-- Historique -->
                     <div id="historique" hidden>
                         <div class="patient-teleconsultation__historique-entete">
-                            <h2 class="patient-teleconsultation__historique-titre">Sessions recentes</h2>
+                            <h2 class="patient-teleconsultation__historique-titre">Sessions récentes</h2>
                             <button type="button" id="bouton-effacer-historique" style="background:none; border:none; color:var(--texte-secondaire); cursor:pointer; padding:4px;">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg>
                             </button>
@@ -103,15 +103,15 @@
                     <div id="reader"></div>
                     <div class="patient-teleconsultation__scanner-overlay" id="scanner-overlay-chargement">
                         <div class="patient-teleconsultation__scanner-spinner"></div>
-                        <p>Initialisation de la camera...</p>
+                        <p>Initialisation de la caméra...</p>
                     </div>
                     <div class="patient-teleconsultation__scanner-overlay" id="scanner-overlay-traitement" hidden>
                         <div class="patient-teleconsultation__scanner-spinner"></div>
-                        <p>Verification...</p>
+                        <p>Vérification...</p>
                     </div>
                 </div>
                 <p style="text-align:center; font-size:12px; color:var(--texte-secondaire); margin-top:16px;">
-                    Assurez-vous que le QR code est bien eclaire.
+                    Assurez-vous que le QR code est bien éclairé.
                 </p>
             </div>
         </div>

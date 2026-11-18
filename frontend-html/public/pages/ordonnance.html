@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouvelle ordonnance - Mon Carnet Sante</title>
+    <title>Nouvelle ordonnance - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -36,7 +36,7 @@
                     <form id="formulaire-ordonnance" novalidate hidden>
                         <div class="carte">
                             <div class="champ">
-                                <label for="champ-consultation" class="champ__label">Consultation liee <span class="champ__obligatoire">*</span></label>
+                                <label for="champ-consultation" class="champ__label">Consultation liée <span class="champ__obligatoire">*</span></label>
                                 <select id="champ-consultation" class="champ__input champ__select" required>
                                     <option value="">Choisir une consultation</option>
                                 </select>
@@ -44,30 +44,30 @@
 
                             <h2 class="ordonnance__section-titre">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                                Medicaments
+                                Médicaments
                             </h2>
 
                             <div id="liste-medicaments"></div>
 
                             <button type="button" id="bouton-ajouter-medicament" class="bouton bouton--neutre" style="margin-bottom: 16px;">
-                                Ajouter un medicament
+                                Ajouter un médicament
                             </button>
 
-                            <h2 class="ordonnance__section-titre">Instructions generales</h2>
+                            <h2 class="ordonnance__section-titre">Instructions générales</h2>
 
                             <div class="champ">
                                 <label for="champ-instructions" class="champ__label">Instructions</label>
-                                <textarea id="champ-instructions" class="champ__input" rows="3" placeholder="Ex : Prendre pendant les repas, eviter l alcool..."></textarea>
+                                <textarea id="champ-instructions" class="champ__input" rows="3" placeholder="Ex : Prendre pendant les repas, éviter l'alcool..."></textarea>
                             </div>
 
                             <div class="champ">
-                                <label for="champ-duree-traitement" class="champ__label">Duree du traitement</label>
+                                <label for="champ-duree-traitement" class="champ__label">Durée du traitement</label>
                                 <input type="text" id="champ-duree-traitement" class="champ__input" placeholder="Ex : 7 jours">
                             </div>
 
                             <div class="ordonnance__actions">
                                 <button type="submit" id="bouton-generer" class="bouton bouton--primaire bouton--grand">
-                                    Generer l'ordonnance
+                                    Générer l'ordonnance
                                 </button>
                                 <a href="#" id="lien-annuler" class="bouton bouton--neutre bouton--grand" style="text-decoration: none; text-align: center;">
                                     Annuler
@@ -82,12 +82,12 @@
                                 <div class="ordonnance__succes-icone" aria-hidden="true">
                                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
-                                <h2 class="ordonnance__succes-titre">Ordonnance enregistree</h2>
+                                <h2 class="ordonnance__succes-titre">Ordonnance enregistrée</h2>
                                 <p class="ordonnance__succes-desc">Code de l'ordonnance :</p>
                                 <div class="ordonnance__code">
                                     <span class="ordonnance__code-texte" id="texte-code-ordonnance">-</span>
                                 </div>
-                                <p class="ordonnance__succes-desc" style="margin-top: 12px;">Le patient peut se presenter en pharmacie avec ce code ou son NPI.</p>
+                                <p class="ordonnance__succes-desc" style="margin-top: 12px;">Le patient peut se présenter en pharmacie avec ce code ou son NPI.</p>
                                 <div class="ordonnance__succes-actions">
                                     <button type="button" id="bouton-imprimer" class="bouton bouton--primaire">Imprimer</button>
                                     <a href="#" id="lien-retour-dossier" class="bouton bouton--neutre" style="text-decoration: none; text-align: center;">Retour au dossier</a>

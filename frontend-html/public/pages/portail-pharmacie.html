@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portail Pharmacie - Mon Carnet Sante</title>
+    <title>Portail Pharmacie - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -64,7 +64,7 @@
                     </div>
 
                     <div id="zone-historique" style="margin-top: 32px;">
-                        <h2 class="pharmacie__titre-section">Dernieres delivrances</h2>
+                        <h2 class="pharmacie__titre-section">Dernières délivrances</h2>
                         <div class="historique" id="liste-historique">
                             <div style="padding: 16px; text-align: center; font-size: 13px; color: var(--texte-secondaire);">Chargement...</div>
                         </div>
@@ -77,21 +77,21 @@
     <div class="modale-overlay" id="modale-delivrance" hidden>
         <div class="modale">
             <div class="modale__entete">
-                <h2 class="modale__titre">Confirmer la delivrance</h2>
+                <h2 class="modale__titre">Confirmer la délivrance</h2>
                 <button type="button" class="modale__fermer" id="fermer-modale-delivrance">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
             <div class="modale__corps">
                 <p style="font-size: 14px; color: var(--texte); line-height: 1.6; margin-bottom: 16px;">
-                    Voulez-vous vraiment delivrer l'ordonnance <strong id="code-a-delivrer"></strong> ?
+                    Voulez-vous vraiment délivrer l'ordonnance <strong id="code-a-delivrer"></strong> ?
                 </p>
                 <p style="font-size: 12px; color: var(--texte-secondaire);">
-                    Cette action est definitive et empechera toute autre delivrance.
+                    Cette action est définitive et empêchera toute autre délivrance.
                 </p>
                 <div class="modale__actions">
                     <button type="button" class="bouton bouton--neutre" id="annuler-delivrance">Annuler</button>
-                    <button type="button" class="bouton bouton--primaire" id="confirmer-delivrance">Confirmer la delivrance</button>
+                    <button type="button" class="bouton bouton--primaire" id="confirmer-delivrance">Confirmer la délivrance</button>
                 </div>
             </div>
         </div>

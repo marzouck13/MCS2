@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teleconsultations - Mon Carnet Sante</title>
+    <title>Téléconsultations - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -22,13 +22,13 @@
                 <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
-                <span class="layout-pro__titre-mobile">Teleconsultations</span>
+                <span class="layout-pro__titre-mobile">Téléconsultations</span>
             </header>
 
             <main class="layout-pro__principal">
                 <div class="teleconsultation__conteneur">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-                        <h1 style="font-size: 24px; font-weight: 800; color: var(--texte);">Mes teleconsultations</h1>
+                        <h1 style="font-size: 24px; font-weight: 800; color: var(--texte);">Mes téléconsultations</h1>
                         <button type="button" id="bouton-nouvelle-session" class="bouton bouton--primaire">
                             Nouvelle session
                         </button>
@@ -44,7 +44,7 @@
     <div class="modale-overlay" id="modale-creation" hidden>
         <div class="modale">
             <div class="modale__entete">
-                <h2 class="modale__titre">Nouvelle teleconsultation</h2>
+                <h2 class="modale__titre">Nouvelle téléconsultation</h2>
                 <button type="button" class="modale__fermer" id="fermer-modale-creation">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -52,7 +52,7 @@
             <div class="modale__corps">
                 <form id="formulaire-creation">
                     <p style="font-size: 13px; color: var(--texte-secondaire); margin-bottom: 16px;">
-                        Une session sera creee et un QR code sera genere. Le patient pourra le scanner pour rejoindre.
+                        Une session sera créée et un QR code sera généré. Le patient pourra le scanner pour rejoindre.
                     </p>
                     <div class="champ">
                         <label class="champ__label">Motif (optionnel)</label>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="modale__actions">
                         <button type="button" class="bouton bouton--neutre" id="annuler-creation">Annuler</button>
-                        <button type="submit" class="bouton bouton--primaire" id="bouton-generer">Generer la session</button>
+                        <button type="submit" class="bouton bouton--primaire" id="bouton-generer">Générer la session</button>
                     </div>
                 </form>
             </div>
@@ -70,7 +70,7 @@
     <div class="modale-overlay" id="modale-qr" hidden>
         <div class="modale">
             <div class="modale__entete">
-                <h2 class="modale__titre">Invitation a la teleconsultation</h2>
+                <h2 class="modale__titre">Invitation à la téléconsultation</h2>
                 <button type="button" class="modale__fermer" id="fermer-modale-qr">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -82,7 +82,7 @@
                 <div class="qr-conteneur-teleconsultation" id="qr-teleconsultation-conteneur">
                     <div id="qrcode-session"></div>
                     <p class="qr-code-session" id="code-session-qr">-</p>
-                    <p class="qr-code-label">Mon Carnet Sante - Teleconsultation</p>
+                    <p class="qr-code-label">Mon Carnet Santé - Téléconsultation</p>
                 </div>
                 <div class="modale__actions" style="justify-content: center; border-top: none; padding-top: 0; gap: 8px;">
                     <button type="button" class="bouton bouton--neutre" id="fermer-qr">Fermer</button>

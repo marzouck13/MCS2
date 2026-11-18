@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouvelle consultation - Mon Carnet Sante</title>
+    <title>Nouvelle consultation - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -37,7 +37,7 @@
 
                             <div class="champ">
                                 <label for="champ-motif" class="champ__label">Motif de consultation <span class="champ__obligatoire">*</span></label>
-                                <input type="text" id="champ-motif" class="champ__input" placeholder="Ex : Fievre persistante depuis 3 jours">
+                                <input type="text" id="champ-motif" class="champ__input" placeholder="Ex : Fièvre persistante depuis 3 jours">
                                 <p class="champ__erreur" id="erreur-motif" hidden></p>
                             </div>
 
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="champ">
-                                <label for="champ-notes" class="champ__label">Notes medicales</label>
+                                <label for="champ-notes" class="champ__label">Notes médicales</label>
                                 <textarea id="champ-notes" class="champ__input" rows="4" placeholder="Observations cliniques, examens prescrits..."></textarea>
                             </div>
 
@@ -55,15 +55,15 @@
 
                             <div class="consultation__grille-constantes">
                                 <div class="champ">
-                                    <label for="champ-tension" class="champ__label">Tension arterielle</label>
+                                    <label for="champ-tension" class="champ__label">Tension artérielle</label>
                                     <input type="text" id="champ-tension" class="champ__input" placeholder="Ex : 120/80">
                                     <p class="champ__aide">mmHg</p>
                                 </div>
                                 <div class="champ">
-                                    <label for="champ-temperature" class="champ__label">Temperature</label>
+                                    <label for="champ-temperature" class="champ__label">Température</label>
                                     <input type="number" id="champ-temperature" class="champ__input" placeholder="Ex : 37.5" step="0.1">
                                     <p class="champ__erreur" id="erreur-temperature" hidden></p>
-                                    <p class="champ__aide">Entre 30 et 45 Celsius</p>
+                                    <p class="champ__aide">Entre 30 et 45 degrés Celsius</p>
                                 </div>
                                 <div class="champ">
                                     <label for="champ-poids" class="champ__label">Poids</label>
@@ -96,11 +96,11 @@
                                 <div class="consultation__succes-icone" aria-hidden="true">
                                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
-                                <h2 class="consultation__succes-titre">Consultation enregistree avec succes</h2>
+                                <h2 class="consultation__succes-titre">Consultation enregistrée avec succès</h2>
                                 <p class="consultation__succes-desc">Voulez-vous prescrire une ordonnance maintenant ?</p>
                                 <div class="consultation__succes-actions">
                                     <a href="#" id="lien-ordonnance" class="bouton bouton--primaire">
-                                        Creer une ordonnance
+                                        Créer une ordonnance
                                     </a>
                                     <a href="#" id="lien-retour-dossier" class="bouton bouton--neutre" style="text-decoration: none; text-align: center;">
                                         Retour au dossier

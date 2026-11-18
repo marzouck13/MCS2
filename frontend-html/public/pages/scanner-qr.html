@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scanner QR - Mon Carnet Sante</title>
+    <title>Scanner QR - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -21,14 +21,14 @@
                 <button type="button" id="bouton-menu-mobile" class="layout-pro__bouton-menu" aria-label="Ouvrir le menu">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
-                <span class="layout-pro__titre-mobile">Scanner un QR Code</span>
+                <span class="layout-pro__titre-mobile">Scanner un QR code</span>
             </header>
 
             <main class="layout-pro__principal">
                 <div class="scanner__conteneur">
                     <div id="zone-erreur-camera" hidden class="scanner__erreur">
-                        <p class="scanner__erreur-texte" id="texte-erreur-camera">Impossible d'acceder a la camera.</p>
-                        <button type="button" id="bouton-reessayer" class="bouton bouton--primaire">Reessayer</button>
+                        <p class="scanner__erreur-texte" id="texte-erreur-camera">Impossible d'accéder à la caméra.</p>
+                        <button type="button" id="bouton-reessayer" class="bouton bouton--primaire">Réessayer</button>
                     </div>
 
                     <div class="scanner__zone">
@@ -36,19 +36,19 @@
                         
                         <div class="scanner__overlay" id="overlay-chargement">
                             <div class="scanner__spinner"></div>
-                            <p class="scanner__message">Initialisation de la camera...</p>
+                            <p class="scanner__message">Initialisation de la caméra...</p>
                         </div>
 
                         <div class="scanner__overlay" id="overlay-traitement" hidden>
                             <div class="scanner__spinner"></div>
-                            <p class="scanner__message">Verification du QR code...</p>
+                            <p class="scanner__message">Vérification du QR code...</p>
                         </div>
                     </div>
 
                     <div class="scanner__instructions">
                         <span class="scanner__badge-instruction">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><line x1="14" y1="14" x2="14" y2="14.01"></line><line x1="21" y1="14" x2="21" y2="21"></line><line x1="14" y1="21" x2="14" y2="21.01"></line><line x1="18" y1="21" x2="18" y2="21.01"></line><line x1="21" y1="18" x2="21" y2="18.01"></line></svg>
-                            Assurez-vous que le QR code est bien eclaire
+                            Assurez-vous que le QR code est bien éclairé
                         </span>
                     </div>
                 </div>

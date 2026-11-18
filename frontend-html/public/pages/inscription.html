@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription - Mon Carnet Sante</title>
+    <title>Inscription - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -16,9 +16,9 @@
         <section class="page-inscription__carte">
             <header class="page-inscription__entete">
                 <div>
-                    <h1 class="page-inscription__titre">Creer mon compte</h1>
+                    <h1 class="page-inscription__titre">Créer mon compte</h1>
                     <p class="page-inscription__sous-titre">
-                        Remplissez les informations ci-dessous. Votre NPI sera verifie.
+                        Remplissez les informations ci-dessous. Votre NPI sera vérifié.
                     </p>
                 </div>
                 <a href="/connexion" class="page-inscription__retour">
@@ -52,11 +52,11 @@
                 <form id="formulaire-inscription" novalidate>
                     <div class="page-inscription__grille">
                         <div>
-                            <h2 class="page-inscription__section-titre">Identite</h2>
+                            <h2 class="page-inscription__section-titre">Identité</h2>
 
                             <div class="champ">
                                 <label for="champ-npi" class="champ__label">
-                                    Numero d'Identification Personnelle NPI <span class="champ__obligatoire">*</span>
+                                    Numéro d'Identification Personnelle NPI <span class="champ__obligatoire">*</span>
                                 </label>
                                 <input id="champ-npi" name="npiProfessionnel" type="text" class="champ__input" placeholder="Ex : 9876543210" maxlength="10" inputmode="numeric" required>
                                 <p class="champ__erreur" id="erreur-npi" hidden></p>
@@ -72,7 +72,7 @@
 
                             <div class="champ">
                                 <label for="champ-prenom" class="champ__label">
-                                    Prenom <span class="champ__obligatoire">*</span>
+                                    Prénom <span class="champ__obligatoire">*</span>
                                 </label>
                                 <input id="champ-prenom" name="prenom" type="text" class="champ__input" placeholder="Ex : Jean" required>
                                 <p class="champ__erreur" id="erreur-prenom" hidden></p>
@@ -83,8 +83,8 @@
                                     Type de professionnel <span class="champ__obligatoire">*</span>
                                 </label>
                                 <select id="champ-type" name="typeProfessionnel" class="champ__input champ__select" required>
-                                    <option value="">Selectionnez votre type</option>
-                                    <option value="medecin">Medecin</option>
+                                    <option value="">Sélectionnez votre type</option>
+                                    <option value="medecin">Médecin</option>
                                     <option value="infirmier">Infirmier</option>
                                     <option value="pharmacien">Pharmacien</option>
                                     <option value="sage_femme">Sage-femme</option>
@@ -95,24 +95,24 @@
 
                             <div class="champ">
                                 <label for="champ-specialite" class="champ__label">
-                                    Specialite <span class="champ__obligatoire">*</span>
+                                    Spécialité <span class="champ__obligatoire">*</span>
                                 </label>
-                                <input id="champ-specialite" name="specialite" type="text" class="champ__input" placeholder="Ex : Cardiologie, Pediatrie..." required>
+                                <input id="champ-specialite" name="specialite" type="text" class="champ__input" placeholder="Ex : Cardiologie, Pédiatrie..." required>
                                 <p class="champ__erreur" id="erreur-specialite" hidden></p>
                             </div>
 
-                            <h2 class="page-inscription__section-titre">Etablissement</h2>
+                            <h2 class="page-inscription__section-titre">Établissement</h2>
 
                             <div class="champ">
                                 <label for="champ-etablissement" class="champ__label">
-                                    Etablissement d'exercice <span class="champ__obligatoire">*</span>
+                                    Établissement d'exercice <span class="champ__obligatoire">*</span>
                                 </label>
                                 <input id="champ-etablissement" name="etablissementNom" type="text" class="champ__input" placeholder="Ex : CNHU-HKM Cotonou" required>
                                 <p class="champ__erreur" id="erreur-etablissement" hidden></p>
                             </div>
 
                             <div class="champ">
-                                <label for="champ-ordre" class="champ__label">Numero d'ordre (optionnel)</label>
+                                <label for="champ-ordre" class="champ__label">Numéro d'ordre (optionnel)</label>
                                 <input id="champ-ordre" name="numeroOrdre" type="text" class="champ__input" placeholder="Ex : MED-BJ-2024-1234">
                             </div>
                         </div>
@@ -122,7 +122,7 @@
 
                             <div class="champ">
                                 <label for="champ-telephone" class="champ__label">
-                                    Telephone <span class="champ__obligatoire">*</span>
+                                    Téléphone <span class="champ__obligatoire">*</span>
                                 </label>
                                 <input id="champ-telephone" name="telephone" type="tel" class="champ__input" placeholder="Ex : 0197000505" required>
                                 <p class="champ__erreur" id="erreur-telephone" hidden></p>
@@ -134,14 +134,14 @@
                                 <p class="champ__erreur" id="erreur-email" hidden></p>
                             </div>
 
-                            <h2 class="page-inscription__section-titre">Securite</h2>
+                            <h2 class="page-inscription__section-titre">Sécurité</h2>
 
                             <div class="champ">
                                 <label for="champ-mdp" class="champ__label">
                                     Mot de passe <span class="champ__obligatoire">*</span>
                                 </label>
                                 <div class="champ__conteneur-icone">
-                                    <input id="champ-mdp" name="motDePasse" type="password" class="champ__input champ__input--avec-icone-droite" placeholder="Minimum 8 caracteres" autocomplete="new-password" required>
+                                    <input id="champ-mdp" name="motDePasse" type="password" class="champ__input champ__input--avec-icone-droite" placeholder="Minimum 8 caractères" autocomplete="new-password" required>
                                     <button type="button" id="bouton-afficher-mdp" class="champ__icone-droite" aria-label="Afficher le mot de passe">
                                         <svg id="icone-oeil-ouvert" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -180,7 +180,7 @@
                                 <label class="champ__checkbox">
                                     <input id="champ-conditions" name="conditionsAcceptees" type="checkbox" required>
                                     <span class="champ__checkbox-texte">
-                                        J'accepte les conditions d'utilisation et la politique de confidentialite.
+                                        J'accepte les conditions d'utilisation et la politique de confidentialité.
                                     </span>
                                 </label>
                                 <p class="champ__erreur" id="erreur-conditions" hidden></p>
@@ -188,10 +188,10 @@
 
                             <div class="page-inscription__actions">
                                 <button type="submit" id="bouton-inscription" class="bouton bouton--primaire bouton--grand bouton--pleine-largeur">
-                                    Creer mon compte
+                                    Créer mon compte
                                 </button>
                                 <p class="page-inscription__lien">
-                                    Vous avez deja un compte ? <br><br>
+                                    Vous avez déjà un compte ? <br><br>
                                     <a href="/connexion"><strong>Se connecter</strong></a>
                                 </p>
                             </div>

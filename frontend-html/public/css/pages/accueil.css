@@ -572,8 +572,7 @@
 
 .accueil-reglementaire__carte {
     background-color: var(--fond-carte);
-    border: 1px solid var(--bordure);
-    border-left: 4px solid var(--primaire);
+    border: 3px solid var(--primaire);
     border-radius: var(--rayon-md);
     padding: 24px;
 }

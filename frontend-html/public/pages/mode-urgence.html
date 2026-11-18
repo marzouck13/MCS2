@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mode Urgence - Mon Carnet Sante</title>
+    <title>Mode Urgence - Mon Carnet Santé</title>
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/composants.css">
@@ -32,14 +32,14 @@
                         </div>
                         <h1 class="urgence__titre">Mode Urgence Vitale</h1>
                         <p class="urgence__description">
-                            Ce mode permet un acces immediat aux informations vitales d'un patient sans consentement prealable. Chaque acces est trace et notifie par SMS.
+                            Ce mode permet un accès immédiat aux informations vitales d'un patient sans consentement préalable. Chaque accès est tracé et notifié par SMS.
                         </p>
                     </div>
 
                     <div class="urgence__carte">
                         <form id="formulaire-urgence" novalidate>
                             <div class="champ">
-                                <label for="champ-npi" class="champ__label">Numero Personnel d'Identification (NPI) <span class="champ__obligatoire">*</span></label>
+                                <label for="champ-npi" class="champ__label">Numéro Personnel d'Identification (NPI) <span class="champ__obligatoire">*</span></label>
                                 <input
                                     id="champ-npi"
                                     type="text"
@@ -54,7 +54,7 @@
 
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 <button type="submit" class="bouton bouton--danger bouton--grand">
-                                    Acceder aux informations vitales
+                                    Accéder aux informations vitales
                                 </button>
                                 <a href="/scanner-qr?mode=urgence" class="bouton bouton--neutre bouton--grand" style="text-decoration: none; text-align: center;">
                                     Scanner un QR code d'urgence
@@ -70,7 +70,7 @@
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17.01"></line></svg>
                             Mode Urgence Actif
                         </div>
-                        <span style="font-size: 11px; opacity: 0.8;">Acces trace</span>
+                        <span style="font-size: 11px; opacity: 0.8;">Accès tracé</span>
                     </div>
 
                     <div class="urgence__resultats">
@@ -85,7 +85,7 @@
                         <div class="urgence__grille">
                             <div class="urgence__bloc urgence__bloc--danger">
                                 <p class="urgence__bloc-label"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--urgence);"></span> Groupe Sanguin</p>
-                                <p class="urgence__bloc-valeur" id="resultat-groupe">Non renseigne</p>
+                                <p class="urgence__bloc-valeur" id="resultat-groupe">Non renseigné</p>
                             </div>
                             <div class="urgence__bloc urgence__bloc--avertissement">
                                 <p class="urgence__bloc-label"><span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--avertissement);"></span> Allergies</p>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
 
-                        <a href="/tableau-bord" class="bouton bouton--neutre bouton--grand bouton--pleine-largeur" style="text-decoration: none; text-align: center;">Terminer l'acces d'urgence</a>
+                        <a href="/tableau-bord" class="bouton bouton--neutre bouton--grand bouton--pleine-largeur" style="text-decoration: none; text-align: center;">Terminer l'accès d'urgence</a>
                     </div>
                 </div>
             </main>
@@ -118,7 +118,7 @@
     <div class="modale-overlay" id="modale-confirmation" hidden>
         <div class="modale">
             <div class="modale__entete">
-                <h2 class="modale__titre">Confirmer l'acces d'urgence</h2>
+                <h2 class="modale__titre">Confirmer l'accès d'urgence</h2>
                 <button type="button" class="modale__fermer" id="fermer-modale">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -128,19 +128,19 @@
                     <span class="message__icone">!</span>
                     <div class="message__texte">
                         <p style="font-weight: 700; margin-bottom: 4px;">Action critique</p>
-                        <p style="font-size: 13px;">Vous etes sur le point d'acceder au dossier medical du patient sans son consentement.</p>
+                        <p style="font-size: 13px;">Vous êtes sur le point d'accéder au dossier médical du patient sans son consentement.</p>
                     </div>
                 </div>
                 <p style="font-size: 13px; margin-bottom: 16px; color: var(--texte);">
-                    Cet acces sera <strong>enregistre</strong> dans le journal du patient et celui-ci recevra une <strong>notification SMS</strong>.
+                    Cet accès sera <strong>enregistré</strong> dans le journal du patient et celui-ci recevra une <strong>notification SMS</strong>.
                 </p>
                 <label class="champ__checkbox" style="margin-bottom: 24px;">
                     <input type="checkbox" id="check-confirmation">
-                    <span class="champ__checkbox-texte">Je confirme agir dans un cadre d'urgence vitale absolue et assume l'entiere responsabilite de cet acces.</span>
+                    <span class="champ__checkbox-texte">Je confirme agir dans un cadre d'urgence vitale absolue et assume l'entière responsabilité de cet accès.</span>
                 </label>
                 <div class="modale__actions" style="border-top: none; padding-top: 0;">
                     <button type="button" class="bouton bouton--neutre" id="annuler-confirmation">Annuler</button>
-                    <button type="button" class="bouton bouton--danger" id="confirmer-acces" disabled>Confirmer l'acces</button>
+                    <button type="button" class="bouton bouton--danger" id="confirmer-acces" disabled>Confirmer l'accès</button>
                 </div>
             </div>
         </div>
